@@ -1,0 +1,22 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Production build
+dist
+dist-ssr
+*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Server Uploads & Temp Files
+server/uploads/*
+!server/uploads/.gitkeep
+
+# IDE / OS
+.DS_Store
+.vscode
+.idea
