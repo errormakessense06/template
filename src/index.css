@@ -1,0 +1,261 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Georgia', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #f1f5f9;
+    color: #0f172a;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* Word Document Canvas - Full Screen Fit */
+.doc-canvas {
+  background-color: #e2e8f0;
+  background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Continuous Document Page Container */
+.doc-page {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: auto;
+  display: block;
+  overflow: visible;
+  padding: 30px 45px;
+  margin: 0 0 20px 0;
+  background: #ffffff;
+  box-shadow: 0 4px 15px -2px rgba(0, 0, 0, 0.08);
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+/* Typography Specifications - Compact & Crisp Word Document Standard */
+.doc-heading-main {
+  font-family: inherit;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #000000;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+.doc-body-text {
+  font-family: inherit;
+  line-height: 1.45;
+  color: #1e293b;
+}
+
+.doc-body-text p {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  line-height: 1.45;
+}
+
+.doc-body-text ul,
+.rendered-doc-content ul {
+  list-style-type: disc !important;
+  padding-left: 1.5rem !important;
+  margin-top: 0.2rem !important;
+  margin-bottom: 0.4rem !important;
+}
+
+.doc-body-text ol,
+.rendered-doc-content ol {
+  list-style-type: decimal !important;
+  padding-left: 1.5rem !important;
+  margin-top: 0.2rem !important;
+  margin-bottom: 0.4rem !important;
+}
+
+.doc-body-text li,
+.rendered-doc-content li {
+  margin-bottom: 0.15rem !important;
+  line-height: 1.45 !important;
+}
+
+.doc-body-text a,
+.rendered-doc-content a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+/* Document Table Styling */
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.5rem 0;
+  font-size: 0.875rem;
+  border: 1px solid #cbd5e1;
+}
+
+.doc-table th {
+  background-color: #f8fafc;
+  color: #0f172a;
+  font-weight: 700;
+  text-align: left;
+  padding: 6px 10px;
+  border: 1px solid #cbd5e1;
+}
+
+.doc-table td {
+  padding: 6px 10px;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  vertical-align: top;
+}
+
+.doc-table tr:nth-child(even) {
+  background-color: #fdfdfd;
+}
+
+/* Rendered Paragraph Content - Continuous Flow */
+.rendered-doc-content p {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  line-height: 1.45;
+  text-align: left;
+}
+
+/* ==========================================
+   PERFECT CONTINUOUS PDF EXPORT & PRINT CSS RULES
+   Matches Microsoft Word continuous flow pagination.
+   ========================================== */
+/* Export hiding helper for PDF and Word download */
+body.is-exporting .no-print,
+body.is-exporting .export-hide,
+body.is-exporting button,
+.is-exporting .no-print,
+.is-exporting .export-hide,
+.is-exporting button {
+  display: none !important;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 15mm 15mm 15mm 15mm;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1.4 !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+
+  .no-print, .export-hide, header, button, .modal, [role="button"], textarea.no-print {
+    display: none !important;
+  }
+
+  .doc-canvas {
+    background: none !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+
+  .doc-page {
+    box-shadow: none !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: auto !important;
+    display: block !important;
+    overflow: visible !important;
+    border: none !important;
+    box-sizing: border-box !important;
+  }
+
+  .cover-page-print {
+    page-break-after: always !important;
+    break-after: page !important;
+    height: auto !important;
+    min-height: auto !important;
+    display: block !important;
+    overflow: visible !important;
+    padding: 10mm 0 !important;
+  }
+
+  /* Continuous Document Flow - Allow Sections, Paragraphs & Lists to Split Naturally */
+  .section-block,
+  .rendered-doc-content,
+  .rendered-doc-content p,
+  .doc-body-text,
+  .doc-body-text p,
+  .rendered-doc-content ul,
+  .rendered-doc-content ol,
+  .doc-body-text ul,
+  .doc-body-text ol,
+  .rendered-doc-content li,
+  .doc-body-text li {
+    height: auto !important;
+    min-height: auto !important;
+    display: block !important;
+    overflow: visible !important;
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Strictly keep headings with the next paragraph (avoid orphan headings) */
+  h1, h2, h3, .doc-heading-main, .editable-heading, .doc-heading-number {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+    font-weight: 700 !important;
+    color: #000000 !important;
+    margin-top: 0.75rem !important;
+    margin-bottom: 0.2rem !important;
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Prevent table rows from splitting across pages */
+  .doc-table {
+    width: 100% !important;
+    border: 1px solid #000000 !important;
+    font-size: 9.5pt !important;
+    margin: 0.5rem 0 !important;
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+  }
+
+  .doc-table tr {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .doc-table th, .doc-table td {
+    border: 1px solid #666666 !important;
+    padding: 4px 8px !important;
+    color: #000000 !important;
+  }
+
+  /* Strictly avoid cutting images and videos in half across page breaks */
+  img, video, figure, .avoid-break, .group\/img, .group\/vid {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+}
