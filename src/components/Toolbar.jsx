@@ -192,34 +192,14 @@ export default function Toolbar({
           
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold text-sm shadow-xs">
-                TQ
-              </div>
               <div>
                 <span className="text-[11px] font-bold text-slate-400 tracking-wider uppercase block">
                   FULL CONTENT PARAGRAPHS (ENGLISH)
                 </span>
                 <h1 className="font-bold text-slate-800 text-sm leading-none">
-                  TekQuora Doc Studio
+                  Text editor
                 </h1>
               </div>
-            </div>
-
-            <div className="h-5 w-px bg-slate-200 hidden sm:block" />
-
-            <div className="flex items-center gap-2">
-              <label className="text-xs font-semibold text-slate-600 hidden sm:block">Template:</label>
-              <select
-                value={activeTemplate.id}
-                onChange={(e) => onSelectTemplate(e.target.value)}
-                className="bg-slate-50 border border-slate-300 text-slate-800 text-xs rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 p-1.5 font-medium cursor-pointer"
-              >
-                {templates.map((tpl) => (
-                  <option key={tpl.id} value={tpl.id}>
-                    {tpl.name}
-                  </option>
-                ))}
-              </select>
             </div>
 
             <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200 hidden md:flex items-center gap-1">
@@ -336,24 +316,8 @@ export default function Toolbar({
 
             <div className="h-4 w-px bg-slate-300 mx-1" />
 
-            {/* Colors & Alignments */}
+            {/* Alignments */}
             <div className="flex items-center gap-0.5">
-              <button 
-                onMouseDown={(e) => e.preventDefault()}
-                onClick={() => applySelectionFormat('foreColor', '#2563eb')}
-                className="p-1.5 hover:bg-white hover:shadow-2xs rounded text-blue-600 transition-all cursor-pointer" 
-                title="Blue Text Color"
-              >
-                <Palette className="w-3.5 h-3.5" />
-              </button>
-              <button 
-                onMouseDown={(e) => e.preventDefault()}
-                onClick={() => applySelectionFormat('hiliteColor', '#fef08a')}
-                className="p-1.5 hover:bg-white hover:shadow-2xs rounded text-amber-600 transition-all cursor-pointer" 
-                title="Highlight Yellow"
-              >
-                <Highlighter className="w-3.5 h-3.5" />
-              </button>
               
               <button 
                 onMouseDown={(e) => e.preventDefault()}
@@ -462,22 +426,6 @@ export default function Toolbar({
                 title="Insert Table"
               >
                 <TableIcon className="w-3.5 h-3.5" />
-              </button>
-              <button 
-                onMouseDown={(e) => e.preventDefault()}
-                onClick={() => applySelectionFormat('formatBlock', 'blockquote')}
-                className="p-1.5 hover:bg-white hover:shadow-2xs rounded text-slate-700 transition-all cursor-pointer" 
-                title="Insert Quote Block"
-              >
-                <Quote className="w-3.5 h-3.5" />
-              </button>
-              <button 
-                onMouseDown={(e) => e.preventDefault()}
-                onClick={() => applySelectionFormat('insertHorizontalRule')}
-                className="p-1.5 hover:bg-white hover:shadow-2xs rounded text-slate-700 transition-all cursor-pointer" 
-                title="Horizontal Divider Line"
-              >
-                <Minus className="w-3.5 h-3.5" />
               </button>
             </div>
 
