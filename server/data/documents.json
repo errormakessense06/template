@@ -5,14 +5,15 @@
       "name": "TekQuora Standard Requirements & Proposal Template",
       "version": "1.0",
       "branding": {
-        "title": "TekQuora Corporate Website & Content Management System (CMS)",
+        "title": "<i>TekQuora Corporate Website &amp; Content Management System (CMS)</i>",
         "subtitle": "Comprehensive Project Requirements & System Specification",
         "preparedBy": "TekQuora",
         "preparedFor": "TekQuora Pvt. Ltd.",
         "version": "1.0",
         "submittedDate": "July 2026",
         "logoText": "TekQuora",
-        "showCoverPage": true
+        "showCoverPage": true,
+        "preparedByLabel": "Prepared By"
       },
       "sections": [
         {
@@ -20,12 +21,17 @@
           "number": "1",
           "title": "Project Overview",
           "isFixed": true,
-          "content": "The TekQuora Corporate Website & Content Management System (CMS) is a modern web application designed to establish a strong digital presence for TekQuora while providing a secure and scalable platform for managing website content. The system combines a professional public-facing corporate website with a custom-built administrative Content Management System (CMS), enabling administrators to manage website content dynamically without requiring any modifications to the application's source code.\n\nThe website functions as the official online platform for TekQuora, showcasing the company's services, expertise, completed projects, technical capabilities, work culture, leadership team, and contact information. It serves as both a marketing platform and a lead generation system by allowing prospective clients to submit project inquiries directly through an integrated contact form.\n\nThe administrative portal enables authorized users to efficiently manage every section of the website, including homepage banners, company information, services, portfolio projects, team members, image galleries, client inquiries, SEO settings, and system configuration.",
+          "content": "<p>The TekQuora Corporate Website &amp; Content Management System (CMS) is a modern web application designed to establish a strong digital presence for TekQuora while providing a secure and scalable platform for ma<b><i><u><font size=\"3\" face=\"Times New Roman\">naging website content. The system combines a professional public-facing corporate website with a custom-built administrative Content Management System (CMS), enabling administrators to manage website content dynamically without requiring any modifications to t</font></u></i></b>he application's source code.</p><p>The website functions as the official online platform for TekQuora, showcasing the company's services, expertise, completed projects, technical capabilities, work culture, leadership team, and contact information. It serves as both a marketing platform and a lead generation system by allowing prospective clients to submit project inquiries directly through an integrated contact form.</p><p>The administrative portal enables authorized users to efficiently manage every section of the website, including homepage banners, company information, services, portfolio projects, team members, image galleries, client inquiries, SEO settings, and system configuration.</p>",
           "images": [
             {
               "id": "img-1",
               "url": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80",
               "caption": "TekQuora Collaborative Engineering & Digital Platform Workspace"
+            },
+            {
+              "id": "img-1785925916981",
+              "url": "http://localhost:5001/uploads/file-1785925916978-544575738.png",
+              "caption": "Screenshot 2026-08-03 at 9.55.05 PM.png"
             }
           ],
           "urls": [
@@ -41,7 +47,7 @@
           "number": "2",
           "title": "About TekQuora",
           "isFixed": true,
-          "content": "TekQuora is a technology-driven software development company dedicated to delivering innovative digital solutions that help businesses accelerate their digital transformation. The company specializes in designing and developing high-quality web applications, enterprise software solutions, mobile applications, cloud-based systems, artificial intelligence solutions, and user-centric digital experiences.\n\nTekQuora's primary objective is to provide reliable, scalable, and performance-oriented software solutions that solve real-world business challenges. By combining technical expertise with modern development methodologies, the company delivers software products that improve operational efficiency, enhance customer engagement, and support long-term business growth.",
+          "content": "<p><ul><li><span style=\"font-size: 16px;\">TekQuora is a technology-driven software development company dedicated to delivering innovative digital solutions that help businesses accelerate their digital transformation. The company specializes in designing and developing high-quality web applications, enterprise software solutions, mobile applications, cloud-based systems, artificial intelligence solutions, and user-centric digital experiences.</span><br></li><li><span style=\"font-size: 16px;\">TekQuora's primary objective is to provide reliable, scalable, and performance-oriented software solutions that solve real-world business challenges. By combining technical expertise with modern development methodologies, the company delivers software products that improve operational efficiency, enhance customer engagement, and support long-term business growth.</span><br></li></ul></p>",
           "images": [],
           "urls": []
         },
@@ -50,34 +56,57 @@
           "number": "3",
           "title": "Business Background",
           "isFixed": true,
-          "content": "In today's competitive digital environment, businesses require a strong online presence to establish credibility, communicate their expertise, and attract potential customers. Before the development of this system, TekQuora lacked a centralized and easily manageable platform for presenting its services and updating website content efficiently.\n\nContent modifications required direct changes to application source code, making updates time-consuming and dependent on software developers. This process increased maintenance costs and delayed content publishing. To overcome these challenges, TekQuora initiated the development of a custom Content Management System integrated with a responsive corporate website.",
+          "content": "<p style=\"text-align: center;\">In today's competitive digital environment, businesses require a strong online presence to establish credibility, communicate their expertise, and attract potential customers. Before the development of this system, TekQuora lacked a centralized and easily manageable platform for presenting its ser<font size=\"2\"><b><i><u>vices and updating website content efficiently.</u></i></b></font></p><p style=\"text-align: center;\"><font size=\"2\"><b><i><u>Content modifications required direct changes to application source code, making updates time-consuming and dependent on software developers. This process increased maintenance costs and delayed content publishing. To overcome these challenges, TekQuora initiated the development of a custom Content Management System integrated with a responsive corporate website.</u></i></b></font></p>",
           "images": [],
-          "urls": []
+          "urls": [],
+          "textAlign": "center"
         },
         {
           "id": "sec-4",
           "number": "4",
           "title": "Project Vision",
           "isFixed": true,
-          "content": "To establish TekQuora as a trusted technology partner by delivering a modern, secure, scalable, and user-friendly corporate website integrated with a powerful Content Management System that enhances customer engagement, strengthens the company's digital presence, and simplifies website administration.",
+          "content": "<p>To establish TekQuora as a trusted technology partner by delivering a modern, secure, scalable, and user-friendly corporate website integrated with a powerful Content Management System that enhances customer engagement, strengthens the company's digital presence, and simplifies website administration.</p>",
           "images": [],
-          "urls": []
+          "urls": [],
+          "table": {
+            "headers": [
+              "Module / Item",
+              "Details",
+              "New Column",
+              "New Column"
+            ],
+            "rows": [
+              [
+                "System Integration",
+                "API & Database Sync",
+                "nh",
+                ""
+              ],
+              [
+                "",
+                "",
+                "",
+                ""
+              ]
+            ]
+          }
         },
         {
           "id": "sec-5",
           "number": "5",
           "title": "Project Mission",
           "isFixed": true,
-          "content": "The mission of the TekQuora Corporate Website & CMS is to provide a professional digital platform that enables businesses and clients to understand TekQuora's capabilities while empowering administrators to manage all website content through an intuitive, secure, and efficient administration interface.\n\nThe project focuses on delivering an exceptional user experience, maintaining high security standards, ensuring responsive design across devices, and supporting future scalability.",
+          "content": "<p>The mission of the TekQuora Corporate Website &amp; CMS is to provide a professional digital platform that enables businesses and clients to understand TekQuora's capabilities while empowering administrators to manage all website content through an intuitive, secure, and efficient administration interface.</p><p>The project focuses on delivering an exceptional user experience, maintaining high security standards, ensuring responsive design across devices, and supporting future scalability.</p>",
           "images": [],
           "urls": []
         },
         {
           "id": "sec-6",
           "number": "6",
-          "title": "Project Objectives",
+          "title": "Project <span style=\"font-weight: normal;\">Objectives</span>",
           "isFixed": true,
-          "content": "The primary objectives of the project are:\n\n• Develop a modern and responsive corporate website representing TekQuora's brand identity.\n• Design and implement a secure administrator dashboard for content management.\n• Enable dynamic management of website content without modifying source code.\n• Showcase company services, portfolio projects, work culture, and technical expertise.\n• Provide a centralized platform for managing customer inquiries.\n• Improve search engine visibility through configurable SEO settings.\n• Deliver a scalable and maintainable application following MVC architecture.\n• Ensure compatibility across desktop, tablet, and mobile devices.\n• Implement secure authentication and authorization mechanisms.\n• Reduce long-term website maintenance efforts through an integrated CMS.",
+          "content": "<p>The primary objectives of the project are:</p><ul><li>Develop a modern and responsive corporate website representing TekQuora's brand identity.</li><li>Design and implement a secure administrator dashboard for content management.</li><li>Enable dynamic management of website content without modifying source code.</li><li>Showcase company services, portfolio projects, work culture, and technical expertise.</li><li>Provide a centralized platform for managing customer inquiries.</li><li>Improve search engine visibility through configurable SEO settings.</li><li>Deliver a scalable and maintainable application following MVC architecture.</li><li>Ensure compatibility across desktop, tablet, and mobile devices.</li><li>Implement secure authentication and authorization mechanisms.</li><li>Reduce long-term website maintenance efforts through an integrated CMS.</li></ul>",
           "images": [],
           "urls": []
         },
@@ -121,10 +150,6 @@
             ],
             "rows": [
               [
-                "Product Owner",
-                "Defines business requirements and approves deliverables"
-              ],
-              [
                 "Project Manager",
                 "Oversees planning, execution, monitoring, and delivery"
               ],
@@ -156,7 +181,7 @@
         {
           "id": "sec-11",
           "number": "11",
-          "title": "Success Criteria",
+          "title": "Success <span style=\"font-weight: normal;\">Criteria</span>",
           "isFixed": true,
           "content": "The project will be considered successful when:\n\n• All planned website pages are fully functional and responsive.\n• The CMS enables administrators to update all website content without code changes.\n• Customer inquiries are stored successfully and email notifications are dispatched.\n• Responsive layouts function flawlessly across desktop, tablet, and mobile viewports.\n• Authentication mechanisms effectively prevent unauthorized administrative access.",
           "images": [],
@@ -282,32 +307,58 @@
           "table": {
             "headers": [
               "Layer",
-              "Technology"
+              "Technology",
+              "New Column",
+              "New Column"
             ],
             "rows": [
               [
                 "Frontend UI",
-                "React / HTML5, CSS3, JavaScript ES6+"
+                "React / HTML5, CSS3, JavaScript ES6+",
+                "",
+                ""
               ],
               [
                 "Styling & Layout",
-                "Tailwind CSS, Word Document Canvas CSS"
+                "Tailwind CSS, Word Document Canvas CSS",
+                "",
+                ""
               ],
               [
                 "Build & Dev Tool",
-                "Vite Fast Module Bundler"
+                "Vite Fast Module Bundler",
+                "",
+                ""
               ],
               [
                 "Database Storage",
-                "SQLite / LocalStorage State Sync"
+                "SQLite / LocalStorage State Sync",
+                "",
+                ""
               ],
               [
                 "Authentication",
-                "Role-Based Authentication (Admin vs Standard User)"
+                "Role-Based Authentication (Admin vs Standard User)",
+                "",
+                ""
               ],
               [
                 "Export Engine",
-                "Browser Print / PDF Generator Engine"
+                "Browser Print / PDF Generator Engine",
+                "",
+                ""
+              ],
+              [
+                "",
+                "",
+                "",
+                ""
+              ],
+              [
+                "",
+                "",
+                "",
+                ""
               ]
             ]
           },
@@ -334,7 +385,7 @@
           "number": "18",
           "title": "Hero Section",
           "isFixed": true,
-          "content": "Purpose\nThe Hero Section is the first section displayed to visitors after loading the website. It immediately communicates TekQuora's vision and core business offerings through impactful visuals and compelling messaging.\n\nComponents\n\nNavigation Header\nThe top navigation bar provides quick access to all major sections of the website, including:\n• Home\n• About\n• Our Team\n• Our Services\n• Projects\n• Contact\nThe company logo is positioned on the left side of the header, reinforcing brand identity, while the navigation menu enables users to move seamlessly between pages.\n\nHero Banner\nThe hero banner contains the primary marketing message of the organization.\n\nHeadline\nFuture-Ready Technology Solutions\nThis headline emphasizes TekQuora's commitment to delivering innovative, scalable, and future-oriented digital solutions.\n\nSupporting Description\nA concise introductory paragraph highlights the company's expertise in:\n• Web Development\n• Artificial Intelligence\n• Digital Transformation\n• Enterprise Solutions\n• Modern Software Development\n\nBackground Image\nA high-quality workplace photograph showcases TekQuora's collaborative office environment, providing visitors with a visual representation of the company's professional culture and team-oriented approach.\n\nPurpose of the Hero Section\nThe Hero Section aims to:\n• Capture visitor attention immediately.\n• Present the company's core value proposition.\n• Strengthen brand credibility.\n• Encourage users to continue exploring the website.",
+          "content": "<p>Purpose</p><p>The Hero Section is the first section displayed to visitors after loading the website. It immediately communicates TekQuora's vision and core business offerings through impactful visuals and compelling messaging.</p><p>Components</p><p>Navigation Header</p><p>The top navigation bar provides quick access to all major sections of the website, including:</p><ul><li>Home</li><li>About</li><li>Our Team</li><li>Our Services</li><li>Projects</li><li>Contact</li></ul><p>The company logo is positioned on the left side of the header, reinforcing brand identity, while the navigation menu enables users to move seamlessly between pages.</p><p>Hero Banner</p><p>The hero banner contains the primary marketing message of the organization.</p><p>Headline</p><p>Future-Ready Technology Solutions</p><p>This headline emphasizes TekQuora's commitment to delivering innovative, scalable, and future-oriented digital solutions.</p><p>Supporting Description</p><p>A concise introductory paragraph highlights the company's expertise in:</p><ul><li>Web Development</li><li>Artificial Intelligence</li><li>Digital Transformation</li><li>Enterprise Solutions</li><li>Modern Software Development</li></ul><p>Background Image</p><p>A high-quality workplace photograph showcases TekQuora's collaborative office environment, providing visitors with a visual representation of the company's professional culture and team-oriented approach.</p><p>Purpose of the Hero Section</p><p>The Hero Section aims to:</p><ul><li>Capture visitor attention immediately.</li><li>Present the company's core value proposition.</li><li>Strengthen brand credibility.</li><li>Encourage users to continue exploring the website.</li></ul>",
           "images": [
             {
               "id": "img-18",
@@ -369,7 +420,7 @@
           "number": "20",
           "title": "Our Services Section",
           "isFixed": true,
-          "content": "Overview\nThe Services section provides an overview of the company's primary business offerings. Each service is presented using an icon, title, and concise description, allowing visitors to quickly understand TekQuora's technical capabilities.\n\nServices Offered\n\nWeb Development\nDesign and development of scalable, secure, and responsive web applications using modern technologies and industry best practices.\n\nMobile Solutions\nDevelopment of native and cross-platform mobile applications for Android and iOS platforms with seamless user experiences.\n\nArtificial Intelligence & Machine Learning\nImplementation of AI-powered solutions including automation, predictive analytics, machine learning models, and intelligent business applications.\n\nIoT Solutions\nDevelopment of Internet of Things (IoT) platforms enabling connected devices, real-time monitoring, data collection, and intelligent automation.\n\nPurpose\nThis section enables potential clients to understand the breadth of TekQuora's technical expertise while encouraging further exploration of individual services.",
+          "content": "<p>Overview</p><p>The Services section provides an overview of the company's primary business offerings. Each service is presented using an icon, title, and concise description, allowing visitors to quickly understand TekQuora's technical capabilities.</p><p>Services Offered</p><p>Web Development</p><p><ul><li><span style=\"font-size: 16px;\">Design and development of scalable, secure, and responsive web applications using modern technologies and industry best practices.</span><br></li><li><span style=\"font-size: 16px;\">Mobile Solutions</span><br></li><li><span style=\"font-size: 16px;\">Development of native and cross-platform mobile applications for Android and iOS platforms with seamless user experiences.</span><br></li><li><span style=\"font-size: 16px;\">Artificial Intelligence &amp; Machine Learning</span><br></li><li><span style=\"font-size: 16px;\">Implementation of AI-powered solutions including automation, predictive analytics, machine learning models, and intelligent business applications.</span><br></li><li><span style=\"font-size: 16px;\">IoT Solutions</span><br></li></ul></p><p>Development of Internet of Things (IoT) platforms enabling connected devices, real-time monitoring, data collection, and intelligent automation.</p><p>Purpose</p><p>This section enables potential clients to understand the breadth of TekQuora's technical expertise while encouraging further exploration of individual services.</p>",
           "images": [
             {
               "id": "img-20-1",
@@ -464,7 +515,7 @@
           "number": "26",
           "title": "Overall Website Features",
           "isFixed": true,
-          "content": "The TekQuora Corporate Website incorporates several features that contribute to a professional user experience:\n\n• Fully responsive design for desktop, tablet, and mobile devices.\n• Dynamic content managed through the Admin CMS.\n• Secure inquiry submission with server-side validation.\n• Professional corporate branding and modern UI/UX.\n• Portfolio showcase with categorized project listings.\n• Team directory with structured profile information.\n• Integrated Google Maps and contact details.\n• SEO-ready architecture and configurable metadata.\n• Fast page loading with optimized Laravel and Vite assets.\n• Secure authentication and content management for administrators.",
+          "content": "<p>The TekQuora Corporate Website incorporates several features that contribute to a professional user experience:</p><ul><li>Fully responsive design for desktop, tablet, and mobile devices.</li><li>Dynamic content managed through the Admin CMS.</li><li>Secure inquiry submission with server-side validation.</li><li>Professional corporate branding and modern UI/UX.</li><li>Portfolio showcase with categorized project listings.</li><li>Team directory with structured profile information.</li><li>Integrated Google Maps and contact details.</li><li>SEO-ready architecture and configurable metadata.</li><li>Fast page loading with optimized Laravel and Vite assets.</li><li>Secure authentication and content management for administrators.</li></ul>",
           "images": [],
           "urls": []
         },
@@ -513,7 +564,7 @@
           "number": "29",
           "title": "Administrator Dashboard",
           "isFixed": true,
-          "content": "The Dashboard serves as the central management interface of the TekQuora CMS. It provides administrators with a real-time overview of website activities, project statistics, customer inquiries, and system status immediately after login.\n\nThe dashboard presents important information through interactive summary cards and quick-access panels, allowing administrators to efficiently monitor website performance and manage daily operations.\n\nDashboard Features\n• Website overview and analytics\n• Active projects count\n• Open customer inquiries\n• Resolved inquiry statistics\n• Total leads captured\n• Recent customer messages\n• Website module status\n• Quick navigation to management modules\n\nThe dashboard acts as the primary control centre from which administrators can access all other content management modules.",
+          "content": "<p>The Dashboard serves as the central management interface of the TekQuora CMS. It provides administrators with a real-time overview of website activities, project statistics, customer inquiries, and system status immediately after login.</p><p>The dashboard presents important information through interactive summary cards and quick-access panels, allowing administrators to efficiently monitor website performance and manage daily operations.</p><p>Dashboard Features</p><ul><li>Website overview and analytics</li><li>Active projects count</li><li>Open customer inquiries</li><li>vjghbj inquiry statistics</li><li>Total leads captured</li><li>Recent customer messages</li><li>Website module status</li><li>Quick navigation to management modules</li></ul><p>The dashboard acts as the primary control centre from which administrators can access all other content management modules.</p>",
           "images": [
             {
               "id": "img-29",
@@ -633,7 +684,7 @@
           "number": "37",
           "title": "System Configuration",
           "isFixed": true,
-          "content": "The System Configuration module contains global application settings affecting the entire website.\nAdministrators can configure SEO metadata, SMTP email settings, analytics integration, maintenance mode, and general website information.\n\nConfiguration Options\n• Website Name\n• SEO Meta Title\n• Meta Description\n• SMTP Configuration\n• Google Analytics\n• Maintenance Mode\n• Contact Information\n• System Settings\n\nCentralized configuration simplifies administration while ensuring consistent system behaviour across all modules.",
+          "content": "<p>The System Configuration module contains global application settings affecting the entire website.</p><p>Administrators can configure SEO metadata, SMTP email settings, analytics integration, maintenance mode, and general website information.</p><p>Configuration Options</p><ul><li>Website Name</li><li>SEO Meta Title</li><li>Meta Des<font size=\"4\">cription</font></li><li><font size=\"4\">SMTP Configuration</font></li><li><font size=\"4\">Google Analytics</font></li><li><font size=\"4\">Maintenance Mode</font></li><li><font size=\"4\">Contact Information</font></li><li><font size=\"4\">System Settings</font></li></ul><p><font size=\"4\">Centralized configuration simplifies administration while ensuring consistent system behaviour across all modules.</font></p>",
           "images": [
             {
               "id": "img-37",
@@ -653,7 +704,7 @@
           "urls": []
         }
       ],
-      "updatedAt": "2026-08-10T10:23:40.348Z"
+      "updatedAt": "2026-08-10T10:28:41.032Z"
     }
   ]
 }
