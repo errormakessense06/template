@@ -28,7 +28,8 @@ import {
   Table as TableIcon,
   PlusCircle,
   X,
-  FileText
+  FileText,
+  Maximize2
 } from 'lucide-react';
 
 const BACKEND_URL = 'http://localhost:5001';
@@ -57,7 +58,9 @@ export default function Toolbar({
   setFontFamily,
   textAlign,
   setTextAlign,
-  onAiGenerate
+  onAiGenerate,
+  layoutMode = 'a4',
+  onLayoutModeChange
 }) {
   const [showAiModal, setShowAiModal] = useState(false);
   const [aiPrompt, setAiPrompt] = useState('');
@@ -208,7 +211,38 @@ export default function Toolbar({
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
+            {/* Layout Mode Switcher */}
+            <div className="flex items-center bg-slate-100 p-0.5 rounded-lg border border-slate-300 shadow-2xs">
+              <button
+                type="button"
+                onClick={() => onLayoutModeChange && onLayoutModeChange('a4')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md transition-all cursor-pointer ${
+                  layoutMode === 'a4'
+                    ? 'bg-white text-blue-600 shadow-xs border border-slate-200 font-bold'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+                title="Switch to A4 Digital Sheet View"
+              >
+                <FileText className="w-3.5 h-3.5" />
+                <span>A4 Size</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => onLayoutModeChange && onLayoutModeChange('landscape')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md transition-all cursor-pointer ${
+                  layoutMode === 'landscape'
+                    ? 'bg-white text-blue-600 shadow-xs border border-slate-200 font-bold'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+                title="Switch to Fluid Landscape Fullscreen View"
+              >
+                <Maximize2 className="w-3.5 h-3.5" />
+                <span>Landscape</span>
+              </button>
+            </div>
+
             <button
               onClick={() => setShowAiModal(true)}
               className="flex items-center gap-1.5 bg-amber-500 hover:bg-amber-600 text-white text-xs font-extrabold tracking-wider uppercase px-4 py-2 rounded-lg shadow-sm transition-all cursor-pointer"
@@ -451,6 +485,8 @@ export default function Toolbar({
             <span>Size: <strong className="text-slate-700">{fontSize}</strong></span>
             <span>•</span>
             <span>Align: <strong className="text-slate-700 capitalize">{textAlign}</strong></span>
+            <span>•</span>
+            <span>Layout: <strong className="text-blue-600 capitalize">{layoutMode === 'a4' ? 'A4 Size' : 'Landscape'}</strong></span>
           </div>
 
           <div className="flex items-center gap-2">

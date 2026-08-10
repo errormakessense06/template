@@ -63,23 +63,30 @@
 }
 
 .doc-body-text ul,
-.rendered-doc-content ul {
+.rendered-doc-content ul,
+ul {
   list-style-type: disc !important;
+  list-style-position: outside !important;
   padding-left: 1.5rem !important;
   margin-top: 0.2rem !important;
   margin-bottom: 0.4rem !important;
 }
 
 .doc-body-text ol,
-.rendered-doc-content ol {
+.rendered-doc-content ol,
+ol {
   list-style-type: decimal !important;
+  list-style-position: outside !important;
   padding-left: 1.5rem !important;
   margin-top: 0.2rem !important;
   margin-bottom: 0.4rem !important;
 }
 
 .doc-body-text li,
-.rendered-doc-content li {
+.rendered-doc-content li,
+li {
+  display: list-item !important;
+  list-style-type: inherit !important;
   margin-bottom: 0.15rem !important;
   line-height: 1.45 !important;
 }
@@ -203,12 +210,24 @@ body.is-exporting button,
   .rendered-doc-content ul,
   .rendered-doc-content ol,
   .doc-body-text ul,
-  .doc-body-text ol,
-  .rendered-doc-content li,
-  .doc-body-text li {
+  .doc-body-text ol {
     height: auto !important;
     min-height: auto !important;
     display: block !important;
+    overflow: visible !important;
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .rendered-doc-content li,
+  .doc-body-text li,
+  li {
+    display: list-item !important;
+    list-style-type: inherit !important;
+    height: auto !important;
+    min-height: auto !important;
     overflow: visible !important;
     break-inside: auto !important;
     page-break-inside: auto !important;

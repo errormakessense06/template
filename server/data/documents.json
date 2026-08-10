@@ -201,7 +201,7 @@
           "number": "13",
           "title": "Project Assumptions",
           "isFixed": true,
-          "content": "• All project requirements are approved before development phase.\n• Hosting infrastructure supports Node / PHP environment.\n• Client provides official branding assets, logos, and initial copy.",
+          "content": "<ul><li>All project requirements are approved before development phase.</li><li>Hosting infrastructure supports Node / PHP environment.</li><li>Client provides official branding assets, logos, and initial copy.</li></ul>",
           "images": [],
           "urls": []
         },
@@ -378,7 +378,8 @@
               "caption": "Home Page & Dynamic Hero Banner Interface"
             }
           ],
-          "urls": []
+          "urls": [],
+          "textAlign": "left"
         },
         {
           "id": "sec-18",
@@ -704,7 +705,7 @@
           "urls": []
         }
       ],
-      "updatedAt": "2026-08-10T10:28:41.032Z"
+      "updatedAt": "2026-08-10T11:19:27.686Z"
     }
   ]
 }

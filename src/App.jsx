@@ -7,6 +7,7 @@ import { DEFAULT_TEMPLATE } from './data/defaultTemplate';
 const BACKEND_URL = 'http://localhost:5001';
 const LOCAL_STORAGE_KEY = 'tekquora_doc_studio_templates_v12';
 const ACTIVE_TEMPLATE_KEY = 'tekquora_doc_studio_active_id_v12';
+const LAYOUT_MODE_KEY = 'tekquora_doc_studio_layout_mode_v12';
 
 export default function App() {
   const [isSaved, setIsSaved] = useState(true);
@@ -16,6 +17,20 @@ export default function App() {
   const [fontSize, setFontSize] = useState('16px');
   const [fontFamily, setFontFamily] = useState('Georgia');
   const [textAlign, setTextAlign] = useState('left');
+
+  // Layout Mode State ('a4' vs 'landscape')
+  const [layoutMode, setLayoutMode] = useState(() => {
+    return localStorage.getItem(LAYOUT_MODE_KEY) || 'a4';
+  });
+
+  const handleLayoutModeChange = (mode) => {
+    setLayoutMode(mode);
+    try {
+      localStorage.setItem(LAYOUT_MODE_KEY, mode);
+    } catch (e) {
+      console.warn('Could not save layoutMode to localStorage:', e);
+    }
+  };
 
   // Track Active Focused Section ID
   const [activeSectionId, setActiveSectionId] = useState(null);
@@ -618,21 +633,25 @@ ${sourceEl.outerHTML}
           'text-align: left;' +
           'mso-pagination: widow-orphan;' +
         '}' +
-        '.doc-body-text ul, .rendered-doc-content ul {' +
-          'list-style-type: disc;' +
-          'padding-left: 1.5rem;' +
-          'margin-top: 0.2rem;' +
-          'margin-bottom: 0.4rem;' +
+        '.doc-body-text ul, .rendered-doc-content ul, ul {' +
+          'list-style-type: disc !important;' +
+          'list-style-position: outside !important;' +
+          'padding-left: 1.5rem !important;' +
+          'margin-top: 0.2rem !important;' +
+          'margin-bottom: 0.4rem !important;' +
         '}' +
-        '.doc-body-text ol, .rendered-doc-content ol {' +
-          'list-style-type: decimal;' +
-          'padding-left: 1.5rem;' +
-          'margin-top: 0.2rem;' +
-          'margin-bottom: 0.4rem;' +
+        '.doc-body-text ol, .rendered-doc-content ol, ol {' +
+          'list-style-type: decimal !important;' +
+          'list-style-position: outside !important;' +
+          'padding-left: 1.5rem !important;' +
+          'margin-top: 0.2rem !important;' +
+          'margin-bottom: 0.4rem !important;' +
         '}' +
-        '.doc-body-text li, .rendered-doc-content li {' +
-          'margin-bottom: 0.15rem;' +
-          'line-height: 1.45;' +
+        '.doc-body-text li, .rendered-doc-content li, li {' +
+          'display: list-item !important;' +
+          'list-style-type: inherit !important;' +
+          'margin-bottom: 0.15rem !important;' +
+          'line-height: 1.45 !important;' +
         '}' +
         '.doc-body-text a, .rendered-doc-content a {' +
           'color: #2563eb;' +
@@ -754,15 +773,22 @@ ${sourceEl.outerHTML}
         textAlign={activeTextAlign}
         setTextAlign={handleSetTextAlign}
         onAiGenerate={handleAiGenerate}
+        layoutMode={layoutMode}
+        onLayoutModeChange={handleLayoutModeChange}
       />
 
-      <main className="doc-canvas flex-1 p-3 sm:p-5 overflow-y-auto">
-        <div className="w-full max-w-full mx-auto space-y-4">
+      <main className="doc-canvas flex-1 p-3 sm:p-6 overflow-y-auto overflow-x-auto flex justify-center">
+        <div className={`w-full transition-all duration-300 ease-in-out space-y-5 ${
+          layoutMode === 'a4'
+            ? 'max-w-[794px] mx-auto'
+            : 'max-w-[1320px] mx-auto px-2 sm:px-4'
+        }`}>
           
           <CoverPage
             branding={activeTemplate.branding}
             onUpdateBranding={handleUpdateBranding}
             fontFamily={fontFamily}
+            layoutMode={layoutMode}
           />
 
           <DocumentEditor
@@ -774,6 +800,7 @@ ${sourceEl.outerHTML}
             onSectionFocus={(secId) => setActiveSectionId(secId)}
             fontSize={fontSize}
             fontFamily={fontFamily}
+            layoutMode={layoutMode}
           />
 
         </div>

@@ -53,7 +53,8 @@ export default function DocumentEditor({
   onSectionFocus,
   fontSize = '16px',
   fontFamily = 'Georgia',
-  textAlign = 'left'
+  textAlign = 'left',
+  layoutMode = 'a4'
 }) {
   const [showUrlModalSectionId, setShowUrlModalSectionId] = React.useState(null);
   const [urlLink, setUrlLink] = React.useState('');
@@ -352,7 +353,14 @@ export default function DocumentEditor({
   };
 
   return (
-    <div className="doc-page shadow-xl border-none p-6 sm:p-8 bg-white" id="document-export-container">
+    <div 
+      className={`doc-page transition-all duration-300 ease-in-out bg-white border border-slate-200/90 ${
+        layoutMode === 'a4'
+          ? 'min-h-[1050px] p-8 sm:p-12 shadow-xl rounded-md mode-a4'
+          : 'min-h-[600px] p-6 sm:p-10 md:p-14 shadow-md rounded-xl mode-landscape'
+      }`} 
+      id="document-export-container"
+    >
       
       {/* Continuous Word Canvas Flow */}
       <div className="sections-outer-flow" style={{ fontFamily }}>

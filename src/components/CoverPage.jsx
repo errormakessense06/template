@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import TekQuoraLogo from './TekQuoraLogo';
 import { Upload } from 'lucide-react';
 
-export default function CoverPage({ branding, onUpdateBranding, fontFamily }) {
+export default function CoverPage({ branding, onUpdateBranding, fontFamily, layoutMode = 'a4' }) {
   const fileInputRef = useRef(null);
 
   const handleChange = (field, htmlValue) => {
@@ -26,7 +26,14 @@ export default function CoverPage({ branding, onUpdateBranding, fontFamily }) {
   };
 
   return (
-    <div className="doc-page cover-page-print flex flex-col justify-between select-text relative h-auto min-h-[900px] p-8 sm:p-12 border border-slate-200 shadow-sm rounded-lg bg-white mb-6" style={{ fontFamily }}>
+    <div 
+      className={`doc-page cover-page-print flex flex-col justify-between select-text relative transition-all duration-300 ease-in-out border border-slate-200/90 bg-white mb-6 ${
+        layoutMode === 'a4'
+          ? 'min-h-[1050px] p-8 sm:p-12 shadow-xl rounded-md mode-a4'
+          : 'min-h-[600px] p-6 sm:p-10 md:p-14 shadow-md rounded-xl mode-landscape'
+      }`} 
+      style={{ fontFamily }}
+    >
       
       {/* Top Header / Logo Section */}
       <div className="pt-4 pb-4 text-center flex flex-col items-center justify-center">
