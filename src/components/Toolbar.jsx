@@ -29,7 +29,8 @@ import {
   PlusCircle,
   X,
   FileText,
-  Maximize2
+  Maximize2,
+  RotateCcw
 } from 'lucide-react';
 
 const BACKEND_URL = 'http://localhost:5001';
@@ -60,7 +61,9 @@ export default function Toolbar({
   setTextAlign,
   onAiGenerate,
   layoutMode = 'a4',
-  onLayoutModeChange
+  onLayoutModeChange,
+  autoSaveEnabled = true,
+  onToggleAutoSave
 }) {
   const [showAiModal, setShowAiModal] = useState(false);
   const [aiPrompt, setAiPrompt] = useState('');
@@ -205,10 +208,28 @@ export default function Toolbar({
               </div>
             </div>
 
-            <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200 hidden md:flex items-center gap-1">
-              <Check className="w-3.5 h-3.5" />
-              {isSaved ? 'Auto-saved' : 'Saving...'}
-            </span>
+            <button
+              type="button"
+              onClick={onToggleAutoSave}
+              className={`text-[11px] font-semibold px-2.5 py-1 rounded-lg border transition-all hidden md:flex items-center gap-1.5 cursor-pointer select-none ${
+                autoSaveEnabled
+                  ? 'bg-emerald-50 text-emerald-700 border-emerald-300 hover:bg-emerald-100'
+                  : 'bg-slate-100 text-slate-500 border-slate-300 hover:bg-slate-200'
+              }`}
+              title={autoSaveEnabled ? "Auto-save is ON. Click to turn OFF." : "Auto-save is OFF. Click to turn ON."}
+            >
+              <div className={`w-5.5 h-3 flex items-center rounded-full p-0.5 transition-colors ${
+                autoSaveEnabled ? 'bg-emerald-600 justify-end' : 'bg-slate-400 justify-start'
+              }`}>
+                <div className="w-2 h-2 bg-white rounded-full shadow-xs" />
+              </div>
+              
+              <span>
+                {autoSaveEnabled 
+                  ? (isSaved ? 'Auto-save ON' : 'Saving...') 
+                  : 'Auto-save OFF'}
+              </span>
+            </button>
           </div>
 
           <div className="flex items-center gap-3">
@@ -508,12 +529,7 @@ export default function Toolbar({
               <span>Download Word</span>
             </button>
 
-            <button
-              onClick={onClearAllContent}
-              className="flex items-center gap-1.5 bg-slate-600 hover:bg-slate-700 text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow-xs transition-all cursor-pointer"
-            >
-              <span>Clear</span>
-            </button>
+
 
             <button
               onClick={onSaveDocument}

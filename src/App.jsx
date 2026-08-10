@@ -8,6 +8,7 @@ const BACKEND_URL = 'http://localhost:5001';
 const LOCAL_STORAGE_KEY = 'tekquora_doc_studio_templates_v12';
 const ACTIVE_TEMPLATE_KEY = 'tekquora_doc_studio_active_id_v12';
 const LAYOUT_MODE_KEY = 'tekquora_doc_studio_layout_mode_v12';
+const AUTO_SAVE_KEY = 'tekquora_doc_studio_auto_save_v12';
 
 export default function App() {
   const [isSaved, setIsSaved] = useState(true);
@@ -30,6 +31,24 @@ export default function App() {
     } catch (e) {
       console.warn('Could not save layoutMode to localStorage:', e);
     }
+  };
+
+  // Auto-save Toggle State (default: true)
+  const [autoSaveEnabled, setAutoSaveEnabled] = useState(() => {
+    const saved = localStorage.getItem(AUTO_SAVE_KEY);
+    return saved !== null ? JSON.parse(saved) : true;
+  });
+
+  const handleToggleAutoSave = () => {
+    setAutoSaveEnabled((prev) => {
+      const next = !prev;
+      try {
+        localStorage.setItem(AUTO_SAVE_KEY, JSON.stringify(next));
+      } catch (e) {
+        console.warn('LocalStorage error saving autoSave preference:', e);
+      }
+      return next;
+    });
   };
 
   // Track Active Focused Section ID
@@ -87,8 +106,13 @@ export default function App() {
       .catch(() => setBackendConnected(false));
   }, []);
 
-  // Safe Auto-save to LocalStorage & Backend API
+  // Safe Auto-save to LocalStorage & Backend API (Controlled by autoSaveEnabled)
   useEffect(() => {
+    if (!autoSaveEnabled) {
+      setIsSaved(true);
+      return;
+    }
+
     setIsSaved(false);
 
     try {
@@ -110,7 +134,7 @@ export default function App() {
 
     const timer = setTimeout(() => setIsSaved(true), 300);
     return () => clearTimeout(timer);
-  }, [templates, activeTemplateId]);
+  }, [templates, activeTemplateId, autoSaveEnabled]);
 
   // Insert Uploaded Image File
   const handleInsertImageFile = (imageUrl, fileName) => {
@@ -775,6 +799,8 @@ ${sourceEl.outerHTML}
         onAiGenerate={handleAiGenerate}
         layoutMode={layoutMode}
         onLayoutModeChange={handleLayoutModeChange}
+        autoSaveEnabled={autoSaveEnabled}
+        onToggleAutoSave={handleToggleAutoSave}
       />
 
       <main className="doc-canvas flex-1 p-3 sm:p-6 overflow-y-auto overflow-x-auto flex justify-center">
