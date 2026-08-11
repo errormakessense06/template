@@ -402,8 +402,7 @@ export default function DocumentEditor({
         layoutMode === 'a4'
           ? 'min-h-[1050px] p-8 sm:p-12 shadow-xl rounded-md mode-a4'
           : 'min-h-[600px] p-6 sm:p-10 md:p-14 shadow-md rounded-xl mode-landscape'
-      }`} 
-      id="document-export-container"
+      }`}
     >
       
       {/* Continuous Word Canvas Flow */}

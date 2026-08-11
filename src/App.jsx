@@ -804,11 +804,14 @@ ${sourceEl.outerHTML}
       />
 
       <main className="doc-canvas flex-1 p-3 sm:p-6 overflow-y-auto overflow-x-auto flex justify-center">
-        <div className={`w-full transition-all duration-300 ease-in-out space-y-5 ${
-          layoutMode === 'a4'
-            ? 'max-w-[794px] mx-auto'
-            : 'max-w-[1320px] mx-auto px-2 sm:px-4'
-        }`}>
+        <div 
+          id="document-export-container"
+          className={`w-full transition-all duration-300 ease-in-out space-y-5 ${
+            layoutMode === 'a4'
+              ? 'max-w-[794px] mx-auto'
+              : 'max-w-[1320px] mx-auto px-2 sm:px-4'
+          }`}
+        >
           
           <CoverPage
             branding={activeTemplate.branding}
