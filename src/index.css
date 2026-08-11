@@ -150,6 +150,18 @@ body.is-exporting button,
   display: none !important;
 }
 
+body.is-exporting .cover-page-print,
+.is-exporting .cover-page-print {
+  page-break-after: always !important;
+  break-after: page !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  min-height: 255mm !important;
+  height: 255mm !important;
+  box-sizing: border-box !important;
+}
+
 @media print {
   @page {
     size: A4 portrait;
@@ -196,10 +208,12 @@ body.is-exporting button,
   .cover-page-print {
     page-break-after: always !important;
     break-after: page !important;
-    height: auto !important;
-    min-height: auto !important;
-    display: block !important;
-    overflow: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    min-height: 255mm !important;
+    height: 255mm !important;
+    box-sizing: border-box !important;
     padding: 10mm 0 !important;
   }
 

@@ -12,7 +12,8 @@
         "version": "1.0",
         "submittedDate": "July 2026",
         "logoText": "TekQuora",
-        "showCoverPage": true
+        "showCoverPage": true,
+        "preparedByLabel": "Prepared By"
       },
       "sections": [
         {
@@ -683,7 +684,7 @@
           "urls": []
         }
       ],
-      "updatedAt": "2026-08-11T10:13:23.429Z"
+      "updatedAt": "2026-08-11T10:18:45.070Z"
     }
   ]
 }
