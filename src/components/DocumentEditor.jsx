@@ -475,7 +475,7 @@ export default function DocumentEditor({
                         {img.caption && (
                           <EditableContent
                             html={img.caption}
-                            className="p-1.5 text-xs text-slate-600 bg-white border-t border-slate-100 text-center font-medium italic outline-none print:border-none cursor-text"
+                            className="img-caption no-print export-hide print:hidden p-1.5 text-xs text-slate-600 bg-white border-t border-slate-100 text-center font-medium italic outline-none cursor-text"
                           />
                         )}
                         <button

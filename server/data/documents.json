@@ -41,7 +41,7 @@
           "number": "2",
           "title": "About TekQuora",
           "isFixed": true,
-          "content": "TekQuora is a technology-driven software development company dedicated to delivering innovative digital solutions that help businesses accelerate their digital transformation. The company specializes in designing and developing high-quality web applications, enterprise software solutions, mobile applications, cloud-based systems, artificial intelligence solutions, and user-centric digital experiences.\n\nTekQuora's primary objective is to provide reliable, scalable, and performance-oriented software solutions that solve real-world business challenges. By combining technical expertise with modern development methodologies, the company delivers software products that improve operational efficiency, enhance customer engagement, and support long-term business growth.",
+          "content": "<p>TekQuora is a technology-driven software development company dedicated to delivering innovative digital solutions that help businesses accelerate their digital transformation. The company specializes in designing and developing high-quality web applications, enterprise software solutions, mobile applications, cloud-based systems, artificial intelligence solutions, and user-centric digital experiences.</p><p>TekQuora's primary objective is to provide reliable, scalable, and performance-oriented software solutions that solve real-world business challenges. By combining technical expertise with modern development methodologies, the company delivers software products that improve operational efficiency, enhance customer engagement, and support long-term business growth.</p>",
           "images": [],
           "urls": []
         },
@@ -60,7 +60,18 @@
           "title": "Project Vision",
           "isFixed": true,
           "content": "To establish TekQuora as a trusted technology partner by delivering a modern, secure, scalable, and user-friendly corporate website integrated with a powerful Content Management System that enhances customer engagement, strengthens the company's digital presence, and simplifies website administration.",
-          "images": [],
+          "images": [
+            {
+              "id": "img-1786377431642",
+              "url": "http://localhost:5001/uploads/file-1786377431636-550484511.png",
+              "caption": "Screenshot 2026-08-10 at 4.55.25 PM.png"
+            },
+            {
+              "id": "img-1786377442002",
+              "url": "http://localhost:5001/uploads/file-1786377441999-643421222.png",
+              "caption": "Screenshot 2026-06-29 at 5.02.24 PM.png"
+            }
+          ],
           "urls": []
         },
         {
@@ -653,7 +664,7 @@
           "urls": []
         }
       ],
-      "updatedAt": "2026-08-10T15:55:30.267Z"
+      "updatedAt": "2026-08-10T15:57:42.558Z"
     }
   ]
 }

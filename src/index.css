@@ -141,9 +141,11 @@ li {
 /* Export hiding helper for PDF and Word download */
 body.is-exporting .no-print,
 body.is-exporting .export-hide,
+body.is-exporting .img-caption,
 body.is-exporting button,
 .is-exporting .no-print,
 .is-exporting .export-hide,
+.is-exporting .img-caption,
 .is-exporting button {
   display: none !important;
 }
@@ -165,7 +167,7 @@ body.is-exporting button,
     overflow: visible !important;
   }
 
-  .no-print, .export-hide, header, button, .modal, [role="button"], textarea.no-print {
+  .no-print, .export-hide, .img-caption, header, button, .modal, [role="button"], textarea.no-print {
     display: none !important;
   }
 
