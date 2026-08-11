@@ -1,4 +1,3 @@
-import React, { useRef, useEffect } from 'react';
 import { 
   Trash2, 
   ArrowUp, 
@@ -7,8 +6,12 @@ import {
   ExternalLink,
   Image as ImageIcon,
   Video as VideoIcon,
-  Link as LinkIcon
+  Link as LinkIcon,
+  Crop,
+  Maximize2,
+  Minimize2
 } from 'lucide-react';
+import ImageCropModal from './ImageCropModal';
 
 const BACKEND_URL = 'http://localhost:5001';
 
@@ -59,6 +62,7 @@ export default function DocumentEditor({
   const [showUrlModalSectionId, setShowUrlModalSectionId] = React.useState(null);
   const [urlLink, setUrlLink] = React.useState('');
   const [urlTitle, setUrlTitle] = React.useState('');
+  const [cropTarget, setCropTarget] = React.useState(null);
 
   // Local Media Upload Handlers
   const handleLocalImageUpload = async (e, sectionId) => {
@@ -269,6 +273,45 @@ export default function DocumentEditor({
     });
   };
 
+  const handleExpandImage = (sectionId, imageId) => {
+    const targetSec = sections.find(s => s.id === sectionId);
+    if (!targetSec) return;
+
+    onUpdateSection(sectionId, {
+      images: targetSec.images.map((img) => {
+        if (img.id !== imageId) return img;
+        const nextSize = img.size === 'small' ? 'medium' : 'large';
+        return { ...img, size: nextSize };
+      })
+    });
+  };
+
+  const handleMinimizeImage = (sectionId, imageId) => {
+    const targetSec = sections.find(s => s.id === sectionId);
+    if (!targetSec) return;
+
+    onUpdateSection(sectionId, {
+      images: targetSec.images.map((img) => {
+        if (img.id !== imageId) return img;
+        const nextSize = img.size === 'large' ? 'medium' : 'small';
+        return { ...img, size: nextSize };
+      })
+    });
+  };
+
+  const handleCropImageSave = (croppedDataUrl) => {
+    if (!cropTarget) return;
+    const { sectionId, img } = cropTarget;
+    const targetSec = sections.find(s => s.id === sectionId);
+    if (!targetSec) return;
+
+    onUpdateSection(sectionId, {
+      images: targetSec.images.map((i) => (i.id === img.id ? { ...i, url: croppedDataUrl } : i))
+    });
+
+    setCropTarget(null);
+  };
+
   const handleRemoveVideo = (sectionId, videoId) => {
     const targetSec = sections.find(s => s.id === sectionId);
     if (!targetSec) return;
@@ -464,29 +507,66 @@ export default function DocumentEditor({
 
                 {/* Render Images */}
                 {hasImages && (
-                  <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {section.images.map((img) => (
-                      <div key={img.id} className="relative group/img border border-slate-200 rounded-lg overflow-hidden bg-slate-50 print:border-none">
-                        <img 
-                          src={img.url} 
-                          alt={img.caption} 
-                          className="w-full h-40 object-cover print:h-auto print:max-h-56" 
-                        />
-                        {img.caption && (
-                          <EditableContent
-                            html={img.caption}
-                            className="img-caption no-print export-hide print:hidden p-1.5 text-xs text-slate-600 bg-white border-t border-slate-100 text-center font-medium italic outline-none cursor-text"
+                  <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 items-start">
+                    {section.images.map((img) => {
+                      const sizeClass = 
+                        img.size === 'small' 
+                          ? 'col-span-1 max-w-xs h-32 object-contain sm:object-cover' 
+                          : img.size === 'large' 
+                          ? 'col-span-1 sm:col-span-2 w-full h-80 object-cover' 
+                          : 'col-span-1 w-full h-44 object-cover';
+
+                      const wrapperClass =
+                        img.size === 'large'
+                          ? 'col-span-1 sm:col-span-2'
+                          : 'col-span-1';
+
+                      return (
+                        <div key={img.id} className={`relative group/img border border-slate-200 rounded-lg overflow-hidden bg-slate-50 print:border-none transition-all duration-300 ${wrapperClass}`}>
+                          <img 
+                            src={img.url} 
+                            alt="Uploaded content" 
+                            className={`w-full ${sizeClass} transition-all duration-300 print:h-auto print:max-h-56`} 
                           />
-                        )}
-                        <button
-                          onClick={() => handleRemoveImage(section.id, img.id)}
-                          className="no-print export-hide absolute top-2 right-2 bg-rose-600 text-white p-1 rounded-full shadow hover:bg-rose-700 transition-colors cursor-pointer"
-                          title="Remove Image"
-                        >
-                          <Trash2 className="w-3.5 h-3.5" />
-                        </button>
-                      </div>
-                    ))}
+                          
+                          {/* Image Action Buttons Overlay: Crop, Expand, Minimize, Delete */}
+                          <div className="no-print export-hide absolute top-2 right-2 flex items-center gap-1 bg-slate-900/85 backdrop-blur-xs p-1 rounded-lg opacity-0 group-hover/img:opacity-100 transition-opacity shadow-md z-10">
+                            <button
+                              type="button"
+                              onClick={() => setCropTarget({ sectionId: section.id, img })}
+                              className="p-1 text-slate-200 hover:text-white hover:bg-slate-700 rounded transition-colors"
+                              title="Crop Image"
+                            >
+                              <Crop className="w-3.5 h-3.5" />
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => handleExpandImage(section.id, img.id)}
+                              className="p-1 text-slate-200 hover:text-white hover:bg-slate-700 rounded transition-colors"
+                              title="Expand Image Size"
+                            >
+                              <Maximize2 className="w-3.5 h-3.5" />
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => handleMinimizeImage(section.id, img.id)}
+                              className="p-1 text-slate-200 hover:text-white hover:bg-slate-700 rounded transition-colors"
+                              title="Minimize Image Size"
+                            >
+                              <Minimize2 className="w-3.5 h-3.5" />
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => handleRemoveImage(section.id, img.id)}
+                              className="p-1 text-rose-400 hover:text-rose-200 hover:bg-rose-900/60 rounded transition-colors"
+                              title="Remove Image"
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 )}
 
@@ -696,6 +776,14 @@ export default function DocumentEditor({
         })}
       </div>
 
+      {/* Image Crop Modal */}
+      {cropTarget && (
+        <ImageCropModal
+          imageUrl={cropTarget.img.url}
+          onSave={handleCropImageSave}
+          onClose={() => setCropTarget(null)}
+        />
+      )}
     </div>
   );
 }

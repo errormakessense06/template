@@ -20,7 +20,7 @@
           "number": "1",
           "title": "Project Overview",
           "isFixed": true,
-          "content": "The TekQuora Corporate Website & Content Management System (CMS) is a modern web application designed to establish a strong digital presence for TekQuora while providing a secure and scalable platform for managing website content. The system combines a professional public-facing corporate website with a custom-built administrative Content Management System (CMS), enabling administrators to manage website content dynamically without requiring any modifications to the application's source code.\n\nThe website functions as the official online platform for TekQuora, showcasing the company's services, expertise, completed projects, technical capabilities, work culture, leadership team, and contact information. It serves as both a marketing platform and a lead generation system by allowing prospective clients to submit project inquiries directly through an integrated contact form.\n\nThe administrative portal enables authorized users to efficiently manage every section of the website, including homepage banners, company information, services, portfolio projects, team members, image galleries, client inquiries, SEO settings, and system configuration.",
+          "content": "<p>The TekQuora Corporate Website &amp; Content Management System (CMS) is a modern web application designed to establish a strong digital presence for TekQuora while providing a secure and scalable platform for managing website content. The system combines a professional public-facing corporate website with a custom-built administrative Content Management System (CMS), enabling administrators to manage website content dynamically without requiring any modifications to the application's source code.</p><p>The website functions as the official online platform for TekQuora, showcasing the company's services, expertise, completed projects, technical capabilities, work culture, leadership team, and contact information. It serves as both a marketing platform and a lead generation system by allowing prospective clients to submit project inquiries directly through an integrated contact form.</p><p>The administrative portal enables authorized users to efficiently manage every section of the website, including homepage banners, company information, services, portfolio projects, team members, image galleries, client inquiries, SEO settings, and system configuration.</p>",
           "images": [
             {
               "id": "img-1",
@@ -88,7 +88,7 @@
           "number": "6",
           "title": "Project Objectives",
           "isFixed": true,
-          "content": "The primary objectives of the project are:\n\n• Develop a modern and responsive corporate website representing TekQuora's brand identity.\n• Design and implement a secure administrator dashboard for content management.\n• Enable dynamic management of website content without modifying source code.\n• Showcase company services, portfolio projects, work culture, and technical expertise.\n• Provide a centralized platform for managing customer inquiries.\n• Improve search engine visibility through configurable SEO settings.\n• Deliver a scalable and maintainable application following MVC architecture.\n• Ensure compatibility across desktop, tablet, and mobile devices.\n• Implement secure authentication and authorization mechanisms.\n• Reduce long-term website maintenance efforts through an integrated CMS.",
+          "content": "<p>The primary objectives of the project are:</p><ul><li>Develop a modern and responsive corporate website representing TekQuora's brand identity.</li><li>Design and implement a secure administrator dashboard for content management.</li><li>Enable dynamic management of website content without modifying source code.</li><li>Showcase company services, portfolio projects, work culture, and technical expertise.</li><li>Provide a centralized platform for managing customer inquiries.</li><li>Improve search engine visibility through configurable SEO settings.</li><li>Deliver a scalable and maintainable application following MVC architecture.</li><li>Ensure compatibility across desktop, tablet, and mobile devices.</li><li>Implement secure authentication and authorization mechanisms.</li><li>Reduce long-term website maintenance efforts through an integrated CMS.</li></ul>",
           "images": [],
           "urls": []
         },
@@ -128,36 +128,44 @@
           "table": {
             "headers": [
               "Stakeholder",
-              "Responsibility"
+              "Responsibility",
+              "add"
             ],
             "rows": [
               [
                 "Product Owner",
-                "Defines business requirements and approves deliverables"
+                "Defines business requirements and approves deliverables",
+                "1"
               ],
               [
                 "Project Manager",
-                "Oversees planning, execution, monitoring, and delivery"
+                "Oversees planning, execution, monitoring, and delivery",
+                "24"
               ],
               [
                 "UI/UX Designer",
-                "Designs the user interface and user experience"
+                "Designs the user interface and user experience",
+                "543"
               ],
               [
                 "Software Developers",
-                "Develop frontend, backend, and CMS modules"
+                "Develop frontend, backend, and CMS modules",
+                "135"
               ],
               [
                 "QA Engineer",
-                "Conducts testing and quality assurance"
+                "Conducts testing and quality assurance",
+                "645"
               ],
               [
                 "Administrator",
-                "Manages website content through the CMS"
+                "Manages website content through the CMS",
+                "356"
               ],
               [
                 "Visitors & Clients",
-                "Browse website services, portfolio, and submit inquiries"
+                "Browse website services, portfolio, and submit inquiries",
+                "total =&nbsp;"
               ]
             ]
           },
@@ -169,7 +177,7 @@
           "number": "11",
           "title": "Success Criteria",
           "isFixed": true,
-          "content": "The project will be considered successful when:\n\n• All planned website pages are fully functional and responsive.\n• The CMS enables administrators to update all website content without code changes.\n• Customer inquiries are stored successfully and email notifications are dispatched.\n• Responsive layouts function flawlessly across desktop, tablet, and mobile viewports.\n• Authentication mechanisms effectively prevent unauthorized administrative access.",
+          "content": "<p>The project will be considered successful when:</p><ul><li>All planned website pages are fully functional and responsive.</li><li>The CMS enables administrators to update all website content without code changes.</li><li>Customer inquiries are stored successfully and email notifications are dispatched.</li><li>Responsive layouts function flawlessly across desktop, tablet, and mobile viewports.</li><li>Authentication mechanisms effectively prevent unauthorized administrative access.</li></ul>",
           "images": [],
           "urls": []
         },
@@ -333,9 +341,9 @@
           "content": "Overview\nThe Home page serves as the primary landing page of the TekQuora Corporate Website. It introduces visitors to the company's vision, services, achievements, projects, work culture, and contact information through a structured and visually engaging interface.\n\nThe page has been designed to create a strong first impression while guiding visitors toward exploring the company's services and portfolio.\n\nKey Features\n• Fully responsive navigation bar\n• Dynamic hero banner\n• Company overview\n• Services overview\n• Featured projects\n• Work culture section\n• Client statistics\n• Gallery preview\n• Contact section\n• Professional footer",
           "images": [
             {
-              "id": "img-17",
-              "url": "/pdf_images/page_9.png",
-              "caption": "Home Page & Dynamic Hero Banner Interface"
+              "id": "img-1786442144940",
+              "url": "http://localhost:5001/uploads/file-1786442144927-889878443.png",
+              "caption": "Screenshot 2026-08-11 at 3.25.26 PM.png"
             }
           ],
           "urls": []
@@ -664,7 +672,7 @@
           "urls": []
         }
       ],
-      "updatedAt": "2026-08-10T15:57:42.558Z"
+      "updatedAt": "2026-08-11T09:55:52.918Z"
     }
   ]
 }
