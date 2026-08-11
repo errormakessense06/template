@@ -511,10 +511,10 @@ export default function DocumentEditor({
                     {section.images.map((img) => {
                       const sizeClass = 
                         img.size === 'small' 
-                          ? 'col-span-1 max-w-xs h-32 object-contain sm:object-cover' 
+                          ? 'col-span-1 max-w-xs h-40 object-contain sm:object-cover' 
                           : img.size === 'large' 
-                          ? 'col-span-1 sm:col-span-2 w-full h-80 object-cover' 
-                          : 'col-span-1 w-full h-44 object-cover';
+                          ? 'col-span-1 sm:col-span-2 w-full h-[400px] object-cover' 
+                          : 'col-span-1 w-full h-64 object-cover';
 
                       const wrapperClass =
                         img.size === 'large'
@@ -526,7 +526,7 @@ export default function DocumentEditor({
                           <img 
                             src={img.url} 
                             alt="Uploaded content" 
-                            className={`w-full ${sizeClass} transition-all duration-300 print:h-auto print:max-h-56`} 
+                            className={`w-full ${sizeClass} transition-all duration-300 print:h-auto print:max-h-[380px]`} 
                           />
                           
                           {/* Image Action Buttons Overlay: Crop, Expand, Minimize, Delete */}
