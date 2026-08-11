@@ -252,20 +252,48 @@ export default function App() {
   };
 
   const handleAiGenerate = (promptText) => {
-    const generatedContent = `\n\n✨ [AI Generated Content - ${promptText}]:\nTekQuora's custom digital solution establishes a powerful, scalable framework designed to streamline operational workflows and ensure enterprise-grade reliability across all organizational touchpoints.`;
+    if (!promptText || !promptText.trim()) return;
+
+    const lowerPrompt = promptText.toLowerCase();
+    let topicDetail = "TekQuora's custom digital platform establishes a robust, enterprise-grade architecture designed to streamline operational workflows, optimize data management, and accelerate digital transformation for high-scale enterprise applications.";
+    
+    if (lowerPrompt.includes('database') || lowerPrompt.includes('migration') || lowerPrompt.includes('cloud')) {
+      topicDetail = "The cloud database migration initiative guarantees high availability, zero-downtime database replication, automated encrypted backups, and optimized query performance across scalable cloud infrastructure.";
+    } else if (lowerPrompt.includes('scope') || lowerPrompt.includes('summary') || lowerPrompt.includes('project')) {
+      topicDetail = "The project scope encompasses complete end-to-end design, modular software development, rigorous quality assurance, continuous integration deployment, and comprehensive post-launch technical support.";
+    } else if (lowerPrompt.includes('security') || lowerPrompt.includes('auth')) {
+      topicDetail = "The security framework incorporates multi-factor authentication, end-to-end data encryption (AES-256), granular role-based access controls (RBAC), and automated compliance auditing.";
+    }
+
+    const aiHtmlBlock = `<p><strong>✨ AI Generated Content (${promptText}):</strong><br/>${topicDetail}</p>`;
+
+    let updatedTargetNumber = '1';
 
     setTemplates((prevTemplates) =>
       prevTemplates.map((tpl) => {
         if (tpl.id !== activeTemplate.id) return tpl;
+        
         const targetId = activeSectionId || (tpl.sections[0] && tpl.sections[0].id);
+        const targetSec = tpl.sections.find(s => s.id === targetId) || tpl.sections[0];
+        if (targetSec) updatedTargetNumber = targetSec.number || '1';
+
         return {
           ...tpl,
-          sections: tpl.sections.map((sec) =>
-            sec.id === targetId ? { ...sec, content: (sec.content || '') + generatedContent } : sec
-          )
+          sections: tpl.sections.map((sec) => {
+            if (sec.id !== targetId) return sec;
+            const existingContent = sec.content || '';
+            const newContent = existingContent ? `${existingContent}\n${aiHtmlBlock}` : aiHtmlBlock;
+            return { ...sec, content: newContent };
+          })
         };
       })
     );
+
+    setSaveNotification({
+      type: 'success',
+      message: `✨ AI Paragraph generated and added to Section ${updatedTargetNumber}!`
+    });
+    setTimeout(() => setSaveNotification(null), 4000);
   };
 
   const handleSelectTemplate = (id) => setActiveTemplateId(id);

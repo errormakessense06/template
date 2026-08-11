@@ -5,7 +5,7 @@
       "name": "TekQuora Standard Requirements & Proposal Template",
       "version": "1.0",
       "branding": {
-        "title": "TekQuora Corporate Website & Content Management System (CMS)",
+        "title": "<font face=\"Inter\">TekQuora Corporate Website &amp; Content Management System (CMS)</font>",
         "subtitle": "Comprehensive Project Requirements & System Specification",
         "preparedBy": "TekQuora",
         "preparedFor": "TekQuora Pvt. Ltd.",
@@ -13,7 +13,8 @@
         "submittedDate": "July 2026",
         "logoText": "TekQuora",
         "showCoverPage": true,
-        "preparedByLabel": "Prepared By"
+        "preparedByLabel": "Prepared By",
+        "headerTagline": "<br>"
       },
       "sections": [
         {
@@ -21,7 +22,7 @@
           "number": "1",
           "title": "Project Overview",
           "isFixed": true,
-          "content": "<p>The TekQuora Corporate Website &amp; Content Management System (CMS) is a modern web application designed to establish a strong digital presence for TekQuora while providing a secure and scalable platform for managing website content. The system combines a professional public-facing corporate website with a custom-built administrative Content Management System (CMS), enabling administrators to manage website content dynamically without requiring any modifications to the application's source code.</p><p>The website functions as the official online platform for TekQuora, showcasing the company's services, expertise, completed projects, technical capabilities, work culture, leadership team, and contact information. It serves as both a marketing platform and a lead generation system by allowing prospective clients to submit project inquiries directly through an integrated contact form.</p><p>The administrative portal enables authorized users to efficiently manage every section of the website, including homepage banners, company information, services, portfolio projects, team members, image galleries, client inquiries, SEO settings, and system configuration.</p>",
+          "content": "<p style=\"text-align: left;\">The TekQuora Corporate Website &amp; Content Management System (CMS) is a modern web application designed to establish a A digital presence for TekQuora while providing a secure and scalable platform for managing website content. The system combines a professional public-facing corporate website with a custom-built administrative Content Management System (CMS), enabling administrators to manage website content dynamically without requiring any modifications to the application's source code.</p><p style=\"text-align: left;\">The website functions as the official online platform for TekQuora, showcasing the company's services, expertise, completed projects, technical capabilities, work culture, leadership team, and contact information. It serves as both a marketing platform and a lead generation system by allowing prospective clients to submit project inquiries directly through an integrated contact form.</p><p style=\"text-align: left;\">The administrative portal enables authorized users to efficiently manage every section of the website, including homepage banners, company information, services, portfolio projects, team members, image galleries, client inquiries, SEO settings, and system configuration.</p>",
           "images": [
             {
               "id": "img-1",
@@ -36,7 +37,8 @@
               "title": "TekQuora Official Corporate Portal",
               "link": "http://localhost:8085/"
             }
-          ]
+          ],
+          "textAlign": "left"
         },
         {
           "id": "sec-2",
@@ -684,7 +686,7 @@
           "urls": []
         }
       ],
-      "updatedAt": "2026-08-11T10:22:39.936Z"
+      "updatedAt": "2026-08-11T10:38:54.099Z"
     }
   ]
 }
