@@ -5,9 +5,14 @@ import path from 'path';
 import multer from 'multer';
 import { fileURLToPath } from 'url';
 import puppeteer from 'puppeteer';
+import { GoogleGenAI, Type } from '@google/genai';
+import dotenv from 'dotenv';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// Load .env file from project root
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -64,6 +69,44 @@ const writeDB = (data) => {
   fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2), 'utf-8');
 };
 
+const AI_SYSTEM_INSTRUCTION = `You are a document organization and editing assistant. Transform only the user-provided content. Organize it into meaningful sections, create concise descriptive headings, improve grammar and clarity, and convert suitable information into bullet points. Preserve all factual information. Do not invent information that is not present in the user's input. Avoid unnecessary expansion and headings. If the input is already well written, make only appropriate improvements. If the input is very short, do not fabricate additional information.`;
+
+const aiResponseSchema = {
+  type: Type.OBJECT,
+  properties: {
+    sections: {
+      type: Type.ARRAY,
+      items: {
+        type: Type.OBJECT,
+        properties: {
+          heading: { type: Type.STRING },
+          content: { type: Type.STRING },
+          bullets: {
+            type: Type.ARRAY,
+            items: { type: Type.STRING }
+          }
+        },
+        required: ['heading', 'content', 'bullets']
+      }
+    }
+  },
+  required: ['sections']
+};
+
+const isValidAiResponse = (result) => (
+  result &&
+  Array.isArray(result.sections) &&
+  result.sections.length > 0 &&
+  result.sections.every((section) => (
+    section &&
+    typeof section.heading === 'string' &&
+    section.heading.trim() &&
+    typeof section.content === 'string' &&
+    Array.isArray(section.bullets) &&
+    section.bullets.every((bullet) => typeof bullet === 'string')
+  ))
+);
+
 // ================= API ENDPOINTS =================
 
 // 1. Health Check Endpoint
@@ -72,6 +115,7 @@ app.get('/api/health', (req, res) => {
     status: 'online',
     server: 'TekQuora Doc Studio API Server',
     port: PORT,
+    aiConfigured: Boolean(process.env.AI_API_KEY || process.env.GEMINI_API_KEY),
     timestamp: new Date().toISOString()
   });
 });
@@ -149,6 +193,68 @@ app.post('/api/upload', (req, res) => {
       }
     });
   });
+});
+
+app.post('/api/ai/generate', async (req, res) => {
+  const input = typeof req.body?.input === 'string' ? req.body.input.trim() : '';
+  if (!input) {
+    return res.status(400).json({ success: false, message: 'Input is required.' });
+  }
+  if (input.length > 30000) {
+    return res.status(400).json({ success: false, message: 'Input must be 30,000 characters or fewer.' });
+  }
+
+  const apiKey = process.env.AI_API_KEY || process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    return res.status(503).json({ success: false, message: 'AI generation is not configured. Set AI_API_KEY on the server.' });
+  }
+
+  try {
+    const ai = new GoogleGenAI({ apiKey });
+    const candidateModels = Array.from(new Set([
+      process.env.AI_MODEL,
+      'gemini-3.6-flash',
+      'gemini-3.5-flash',
+      'gemini-2.5-flash',
+      'gemini-2.0-flash'
+    ].filter(Boolean)));
+
+    let response;
+    let lastErr;
+    for (const modelName of candidateModels) {
+      try {
+        response = await ai.models.generateContent({
+          model: modelName,
+          contents: input,
+          config: {
+            systemInstruction: AI_SYSTEM_INSTRUCTION,
+            responseMimeType: 'application/json',
+            responseSchema: aiResponseSchema
+          }
+        });
+        if (response) break;
+      } catch (e) {
+        lastErr = e;
+        const msg = e.message || '';
+        if (msg.includes('404') || msg.includes('503') || msg.includes('NOT_FOUND') || msg.includes('UNAVAILABLE') || msg.includes('no longer available')) {
+          continue;
+        }
+        throw e;
+      }
+    }
+    if (!response && lastErr) throw lastErr;
+
+    const result = JSON.parse(response.text || '');
+
+    if (!isValidAiResponse(result)) {
+      return res.status(502).json({ success: false, message: 'AI returned an invalid document structure. Please try again.' });
+    }
+
+    res.json({ success: true, sections: result.sections });
+  } catch (err) {
+    console.error('[AI Generate] Request failed:', err.message);
+    res.status(502).json({ success: false, message: 'AI generation failed. Please try again.' });
+  }
 });
 
 // 7. POST Puppeteer-based server-side PDF export
@@ -246,5 +352,6 @@ app.post('/api/export-pdf', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`=================================================`);
   console.log(`🚀 TekQuora Backend API Server running on port ${PORT}`);
+  console.log(`🤖 AI Configured: ${Boolean(process.env.AI_API_KEY || process.env.GEMINI_API_KEY)}`);
   console.log(`=================================================`);
 });

@@ -10,6 +10,13 @@ const ACTIVE_TEMPLATE_KEY = 'tekquora_doc_studio_active_id_v12';
 const LAYOUT_MODE_KEY = 'tekquora_doc_studio_layout_mode_v12';
 const AUTO_SAVE_KEY = 'tekquora_doc_studio_auto_save_v12';
 
+const escapeHtml = (value) => String(value)
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;')
+  .replace(/'/g, '&#039;');
+
 export default function App() {
   const [isSaved, setIsSaved] = useState(true);
   const [backendConnected, setBackendConnected] = useState(false);
@@ -251,47 +258,56 @@ export default function App() {
     }
   };
 
-  const handleAiGenerate = (promptText) => {
-    if (!promptText || !promptText.trim()) return;
+  const handleAiGenerate = async (input) => {
+    const response = await fetch(`${BACKEND_URL}/api/ai/generate`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ input })
+    });
+    const result = await response.json().catch(() => ({}));
 
-    const lowerPrompt = promptText.toLowerCase();
-    let topicDetail = "TekQuora's custom digital platform establishes a robust, enterprise-grade architecture designed to streamline operational workflows, optimize data management, and accelerate digital transformation for high-scale enterprise applications.";
-    
-    if (lowerPrompt.includes('database') || lowerPrompt.includes('migration') || lowerPrompt.includes('cloud')) {
-      topicDetail = "The cloud database migration initiative guarantees high availability, zero-downtime database replication, automated encrypted backups, and optimized query performance across scalable cloud infrastructure.";
-    } else if (lowerPrompt.includes('scope') || lowerPrompt.includes('summary') || lowerPrompt.includes('project')) {
-      topicDetail = "The project scope encompasses complete end-to-end design, modular software development, rigorous quality assurance, continuous integration deployment, and comprehensive post-launch technical support.";
-    } else if (lowerPrompt.includes('security') || lowerPrompt.includes('auth')) {
-      topicDetail = "The security framework incorporates multi-factor authentication, end-to-end data encryption (AES-256), granular role-based access controls (RBAC), and automated compliance auditing.";
+    if (!response.ok || !result.success || !Array.isArray(result.sections)) {
+      throw new Error(result.message || 'AI generation failed. Please try again.');
     }
 
-    const aiHtmlBlock = `<p><strong>✨ AI Generated Content (${promptText}):</strong><br/>${topicDetail}</p>`;
+    const generatedSections = result.sections
+      .filter((section) => section.heading && (section.content || section.bullets?.length))
+      .map((section, index) => ({
+        id: `ai-sec-${Date.now()}-${index}`,
+        number: '',
+        title: escapeHtml(section.heading.trim()),
+        isFixed: false,
+        content: [
+          section.content.trim() ? `<p>${escapeHtml(section.content.trim())}</p>` : '',
+          section.bullets.length ? `<ul>${section.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join('')}</ul>` : ''
+        ].filter(Boolean).join(''),
+        images: [],
+        videos: [],
+        urls: []
+      }));
 
-    let updatedTargetNumber = '1';
+    if (!generatedSections.length) {
+      throw new Error('AI did not return usable content. Please try again.');
+    }
 
     setTemplates((prevTemplates) =>
       prevTemplates.map((tpl) => {
         if (tpl.id !== activeTemplate.id) return tpl;
-        
-        const targetId = activeSectionId || (tpl.sections[0] && tpl.sections[0].id);
-        const targetSec = tpl.sections.find(s => s.id === targetId) || tpl.sections[0];
-        if (targetSec) updatedTargetNumber = targetSec.number || '1';
-
+        const targetId = activeSectionId || tpl.sections[0]?.id;
+        const targetIndex = Math.max(0, tpl.sections.findIndex((section) => section.id === targetId));
+        const updatedSections = [...tpl.sections];
+        updatedSections.splice(targetIndex + 1, 0, ...generatedSections);
         return {
           ...tpl,
-          sections: tpl.sections.map((sec) => {
-            if (sec.id !== targetId) return sec;
-            const existingContent = sec.content || '';
-            const newContent = existingContent ? `${existingContent}\n${aiHtmlBlock}` : aiHtmlBlock;
-            return { ...sec, content: newContent };
-          })
+          sections: updatedSections.map((section, index) => ({ ...section, number: String(index + 1) }))
         };
       })
     );
 
+    setActiveSectionId(generatedSections[0].id);
     setSaveNotification({
       type: 'success',
-      message: `✨ AI Paragraph generated and added to Section ${updatedTargetNumber}!`
+      message: `AI organized your content into ${generatedSections.length} editable section${generatedSections.length === 1 ? '' : 's'}.`
     });
     setTimeout(() => setSaveNotification(null), 4000);
   };

@@ -68,6 +68,7 @@ export default function Toolbar({
   const [showAiModal, setShowAiModal] = useState(false);
   const [aiPrompt, setAiPrompt] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
+  const [aiError, setAiError] = useState('');
 
   // Hidden File Inputs for Native Local Image & Video Pickers
   const imageInputRef = useRef(null);
@@ -178,15 +179,23 @@ export default function Toolbar({
     e.target.value = '';
   };
 
-  const handleRunAi = () => {
-    if (!aiPrompt.trim()) return;
+  const handleRunAi = async () => {
+    if (isGenerating) return;
+    if (!aiPrompt.trim()) {
+      setAiError('Paste some content before generating.');
+      return;
+    }
     setIsGenerating(true);
-    setTimeout(() => {
-      onAiGenerate(aiPrompt);
+    setAiError('');
+    try {
+      await onAiGenerate(aiPrompt.trim());
       setIsGenerating(false);
       setShowAiModal(false);
       setAiPrompt('');
-    }, 1000);
+    } catch (err) {
+      setAiError(err.message || 'AI generation failed. Please try again.');
+      setIsGenerating(false);
+    }
   };
 
   return (
@@ -265,7 +274,7 @@ export default function Toolbar({
             </div>
 
             <button
-              onClick={() => setShowAiModal(true)}
+              onClick={() => { setAiError(''); setShowAiModal(true); }}
               className="flex items-center gap-1.5 bg-amber-500 hover:bg-amber-600 text-white text-xs font-extrabold tracking-wider uppercase px-4 py-2 rounded-lg shadow-sm transition-all cursor-pointer"
               title="Generate document content using AI"
             >
@@ -562,20 +571,27 @@ export default function Toolbar({
             </div>
 
             <p className="text-xs text-slate-500 leading-relaxed">
-              Type what requirements or content you want to generate.
+              Paste your rough notes, summary, or content. AI will organize, structure, and polish it for you.
             </p>
 
             <textarea
               value={aiPrompt}
               onChange={(e) => setAiPrompt(e.target.value)}
-              rows={3}
-              placeholder="e.g. Write project objectives for TekQuora enterprise cloud software..."
+              rows={6}
+              placeholder="Paste your rough notes or summary here..."
               className="w-full text-xs border border-slate-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-amber-500"
             />
+
+            {aiError && (
+              <p className="text-xs text-rose-600 bg-rose-50 border border-rose-200 rounded-lg p-2.5">
+                {aiError}
+              </p>
+            )}
 
             <div className="flex items-center justify-end gap-2 pt-2">
               <button
                 onClick={() => setShowAiModal(false)}
+                disabled={isGenerating}
                 className="text-xs text-slate-500 hover:text-slate-700 px-3 py-2"
               >
                 Cancel
@@ -586,7 +602,7 @@ export default function Toolbar({
                 className="flex items-center gap-1.5 bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold px-4 py-2 rounded-lg shadow-sm disabled:opacity-50"
               >
                 <Sparkles className="w-4 h-4" />
-                <span>{isGenerating ? 'Generating...' : 'Generate Paragraphs'}</span>
+                <span>{isGenerating ? 'Generating...' : 'Generate with AI'}</span>
               </button>
             </div>
           </div>
