@@ -3,6 +3,7 @@ import Toolbar from './components/Toolbar';
 import CoverPage from './components/CoverPage';
 import DocumentEditor from './components/DocumentEditor';
 import { DEFAULT_TEMPLATE } from './data/defaultTemplate';
+import { isStructuredInput, parseStructuredDocument } from './utils/documentParser';
 
 const BACKEND_URL = 'http://localhost:5001';
 const LOCAL_STORAGE_KEY = 'tekquora_doc_studio_templates_v12';
@@ -268,32 +269,45 @@ export default function App() {
   };
 
   const handleAiGenerate = async (input) => {
-    const response = await fetch(`${BACKEND_URL}/api/ai/generate`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ input })
-    });
-    const result = await response.json().catch(() => ({}));
+    let generatedSections = [];
+    let isImport = false;
 
-    if (!response.ok || !result.success || !Array.isArray(result.sections)) {
-      throw new Error(result.message || 'AI generation failed. Please try again.');
+    // Check if input is already structured content (Markdown, outlines, numbered headers, list blocks, code blocks).
+    // If so, treat as DOCUMENT IMPORT (SOURCE OF TRUTH) and bypass Gemini completely.
+    if (isStructuredInput(input)) {
+      generatedSections = parseStructuredDocument(input);
+      isImport = true;
     }
 
-    const generatedSections = result.sections
-      .filter((section) => section.heading && Array.isArray(section.blocks) && section.blocks.length)
-      .map((section, index) => ({
-        id: `ai-sec-${Date.now()}-${index}`,
-        number: '',
-        title: escapeHtml(section.heading.trim()),
-        isFixed: false,
-        content: section.blocks.map(formatAiBlock).join(''),
-        images: [],
-        videos: [],
-        urls: []
-      }));
+    if (!isImport || !generatedSections.length) {
+      // Fallback to Gemini AI for raw unstructured prose
+      const response = await fetch(`${BACKEND_URL}/api/ai/generate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ input })
+      });
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok || !result.success || !Array.isArray(result.sections)) {
+        throw new Error(result.message || 'AI generation failed. Please try again.');
+      }
+
+      generatedSections = result.sections
+        .filter((section) => section.heading && Array.isArray(section.blocks) && section.blocks.length)
+        .map((section, index) => ({
+          id: `ai-sec-${Date.now()}-${index}`,
+          number: '',
+          title: escapeHtml(section.heading.trim()),
+          isFixed: false,
+          content: section.blocks.map(formatAiBlock).join(''),
+          images: [],
+          videos: [],
+          urls: []
+        }));
+    }
 
     if (!generatedSections.length) {
-      throw new Error('AI did not return usable content. Please try again.');
+      throw new Error('Could not parse usable content. Please try again.');
     }
 
     setTemplates((prevTemplates) =>
@@ -305,7 +319,11 @@ export default function App() {
         updatedSections.splice(targetIndex + 1, 0, ...generatedSections);
         return {
           ...tpl,
-          sections: updatedSections.map((section, index) => ({ ...section, number: String(index + 1) }))
+          sections: updatedSections.map((section, index) => {
+            // Preserve explicit empty string or custom numbers on imported sections
+            if (section.number === '') return section;
+            return { ...section, number: String(index + 1) };
+          })
         };
       })
     );
@@ -313,7 +331,9 @@ export default function App() {
     setActiveSectionId(generatedSections[0].id);
     setSaveNotification({
       type: 'success',
-      message: `AI organized your content into ${generatedSections.length} editable section${generatedSections.length === 1 ? '' : 's'}.`
+      message: isImport 
+        ? `✨ Imported ${generatedSections.length} section${generatedSections.length === 1 ? '' : 's'} directly into editor!`
+        : `AI organized your content into ${generatedSections.length} editable section${generatedSections.length === 1 ? '' : 's'}.`
     });
     setTimeout(() => setSaveNotification(null), 4000);
   };

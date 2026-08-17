@@ -354,7 +354,7 @@ export default function DocumentEditor({
   // Format raw text lines to initial HTML structure
   const formatInitialHtml = (rawContent) => {
     if (!rawContent) return '';
-    if (rawContent.includes('<p>') || rawContent.includes('<ul>') || rawContent.includes('<ol>') || rawContent.includes('<li>')) {
+    if (rawContent.includes('<p>') || rawContent.includes('<ul>') || rawContent.includes('<ol>') || rawContent.includes('<li>') || rawContent.includes('<pre>')) {
       return rawContent;
     }
 
@@ -414,11 +414,22 @@ export default function DocumentEditor({
           const hasTable = Boolean(section.table);
 
           const defaultNum = section.number !== undefined && section.number !== null ? section.number : `${index + 1}.`;
+          const level = section.level || 1;
+          const headingSizeClass = 
+            level === 1 ? 'text-xl font-bold text-slate-900' :
+            level === 2 ? 'text-lg font-bold text-slate-800' :
+            level === 3 ? 'text-base font-semibold text-slate-700' :
+            'text-sm font-semibold text-slate-600';
+
+          const indentClass = 
+            level === 2 ? 'pl-4 border-l-2 border-slate-200' :
+            level === 3 ? 'pl-8 border-l-2 border-slate-100' :
+            level >= 4 ? 'pl-12 border-l-2 border-slate-100' : '';
 
           return (
             <div 
               key={section.id} 
-              className="section-block group relative mb-3"
+              className={`section-block group relative mb-3 ${indentClass}`}
               onClick={() => onSectionFocus && onSectionFocus(section.id)}
             >
               
@@ -427,20 +438,22 @@ export default function DocumentEditor({
                 <div className="flex-1 flex items-center gap-1.5">
                   
                   {/* Serial Number - 100% Inline Editable or Removable */}
-                  <EditableContent
-                    html={defaultNum}
-                    onFocus={() => onSectionFocus && onSectionFocus(section.id)}
-                    onChange={(newVal) => onUpdateSection(section.id, { number: newVal })}
-                    className="doc-heading-number editable-number text-xl font-bold text-slate-900 leading-tight outline-none py-0.5 px-1 rounded hover:bg-slate-100 focus:bg-blue-50/80 focus:ring-1 focus:ring-blue-400 font-sans cursor-text"
-                    title="Click to edit or remove section number (e.g. '1.', '1.1', 'A.', or leave empty)"
-                  />
+                  {defaultNum ? (
+                    <EditableContent
+                      html={defaultNum}
+                      onFocus={() => onSectionFocus && onSectionFocus(section.id)}
+                      onChange={(newVal) => onUpdateSection(section.id, { number: newVal })}
+                      className={`doc-heading-number editable-number ${headingSizeClass} leading-tight outline-none py-0.5 px-1 rounded hover:bg-slate-100 focus:bg-blue-50/80 focus:ring-1 focus:ring-blue-400 font-sans cursor-text`}
+                      title="Click to edit or remove section number (e.g. '1.', '1.1', 'A.', or leave empty)"
+                    />
+                  ) : null}
 
                   {/* Heading Title - 100% Inline Editable */}
                   <EditableContent
                     html={section.title}
                     onFocus={() => onSectionFocus && onSectionFocus(section.id)}
                     onChange={(newVal) => onUpdateSection(section.id, { title: newVal })}
-                    className="doc-heading-main w-full editable-heading bg-transparent outline-none py-0.5 px-1 rounded hover:bg-slate-50 focus:bg-slate-50 focus:ring-2 focus:ring-blue-500/20 text-xl font-bold text-slate-900 leading-tight cursor-text"
+                    className={`doc-heading-main w-full editable-heading bg-transparent outline-none py-0.5 px-1 rounded hover:bg-slate-50 focus:bg-slate-50 focus:ring-2 focus:ring-blue-500/20 ${headingSizeClass} leading-tight cursor-text`}
                     style={{ fontFamily }}
                   />
                 </div>

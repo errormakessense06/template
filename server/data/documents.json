@@ -37,8 +37,52 @@
           ]
         },
         {
+          "id": "import-sec-1786962739004-0",
+          "number": "",
+          "title": "1. Project Overview",
+          "level": 1,
+          "isFixed": false,
+          "content": "<p class=\"my-1.5\">This project is an enterprise platform.</p>",
+          "images": [],
+          "videos": [],
+          "urls": []
+        },
+        {
+          "id": "import-sec-1786962739004-1",
+          "number": "",
+          "title": "4. Technology Stack",
+          "level": 1,
+          "isFixed": false,
+          "content": "",
+          "images": [],
+          "videos": [],
+          "urls": []
+        },
+        {
+          "id": "import-sec-1786962739004-2",
+          "number": "",
+          "title": "Frontend",
+          "level": 2,
+          "isFixed": false,
+          "content": "<ul class=\"list-disc pl-5 my-2 space-y-1\"><li>College discovery</li><li>Course discovery</li></ul>",
+          "images": [],
+          "videos": [],
+          "urls": []
+        },
+        {
+          "id": "import-sec-1786962739004-3",
+          "number": "",
+          "title": "Backend",
+          "level": 2,
+          "isFixed": false,
+          "content": "<pre class=\"bg-slate-900 text-slate-100 p-3.5 rounded-lg font-mono text-xs overflow-x-auto whitespace-pre font-normal my-2.5 shadow-inner\"><code>                          C2TALENTS\n                            |\n              +--------------+--------------+\n              |                             |\n        STUDENT WEBSITE                ADMIN CMS</code></pre>",
+          "images": [],
+          "videos": [],
+          "urls": []
+        },
+        {
           "id": "ai-sec-1786959646975-0",
-          "number": "2",
+          "number": "6",
           "title": "Event Overview and Theme",
           "isFixed": false,
           "content": "<p>The department held a meeting to discuss progress on the upcoming annual college technology symposium, which will bring together students, faculty members, industry professionals, and representatives from several technology organizations. The meeting opened with a review of the work completed during the previous week.</p><ul><li>The main event theme, 'Technology for a Sustainable Future,' has been finalized.</li><li>The creative team is designing the event poster, with requested revisions for the placement of the college logo, speaker information, and registration link.</li></ul>",
@@ -48,7 +92,7 @@
         },
         {
           "id": "ai-sec-1786959646975-1",
-          "number": "3",
+          "number": "7",
           "title": "Registration and Attendance System",
           "isFixed": false,
           "content": "<p>The registration form must be finalized as soon as possible to allow student registrations to open before the end of the month. The technical team confirmed that the online registration system is nearly ready but still requires mobile device testing.</p><p>To enable digital participation certificates for attending students, the committee approved using a digital attendance form with a unique registration number for each participant. Rahul will coordinate with the registration team to test the attendance system before the symposium.</p>",
@@ -58,7 +102,7 @@
         },
         {
           "id": "ai-sec-1786959646975-2",
-          "number": "4",
+          "number": "8",
           "title": "Team Roles and Responsibilities",
           "isFixed": false,
           "content": "<p>To structure student volunteer efforts, the organizing committee established dedicated teams for registration, hospitality, technical support, photography, social media promotion, stage management, and guest coordination.</p><ul><li>Ananya: Coordinate the registration team and prepare a list of volunteers by Wednesday.</li><li>Rahul: Supervise the technical support team and ensure testing of microphones, projectors, laptops, internet connection, presentation systems, and backup equipment prior to the event.</li><li>Hospitality Team: Welcome invited speakers, arrange refreshments, and prepare a detailed arrival schedule for each guest.</li><li>Design Team: Prepare a sample certificate for approval prior to printing.</li><li>Photography and Documentation Team: Capture important sessions, guest interactions, project demonstrations, and prize distributions for the college website and social media, ensuring permission is obtained before publishing participant photos publically.</li><li>Facilities Team: Inspect the main auditorium (seating, power outlets, air-conditioning, lighting, stage arrangements, projector screens, emergency exits) and prepare a venue inspection report.</li></ul>",
@@ -68,7 +112,7 @@
         },
         {
           "id": "ai-sec-1786959646975-3",
-          "number": "5",
+          "number": "9",
           "title": "Keynote Speaker Coordination",
           "isFixed": false,
           "content": "<p>The committee discussed inviting an industry expert for the keynote address and shortlisted two potential speakers based on their expertise in artificial intelligence and sustainable technology. The faculty coordinator will contact both candidates and confirm availability by Friday.</p>",
@@ -78,7 +122,7 @@
         },
         {
           "id": "ai-sec-1786959646975-4",
-          "number": "6",
+          "number": "10",
           "title": "Budget Planning",
           "isFixed": false,
           "content": "<p>Estimated expenses have increased due to additional requirements for printing, refreshments, certificates, decorations, and technical equipment. Because current budget allocations may be insufficient if attendance exceeds expectations, the finance team will prepare and submit two budget proposals at the next meeting:</p><ul><li>Plan 1: Based on approximately 100 participants.</li><li>Plan 2: Based on approximately 200 participants.</li></ul>",
@@ -88,7 +132,7 @@
         },
         {
           "id": "ai-sec-1786959646975-5",
-          "number": "7",
+          "number": "11",
           "title": "Promotional Strategy",
           "isFixed": false,
           "content": "<p>The committee accepted the social media team&#039;s recommendation to start promotional activities two weeks before the event rather than during the final week.</p><ul><li>Promotional Channels: Instagram posts, short videos, digital posters, email announcements, and college communication channel reminders.</li><li>Meera and Joseph: Prepare the initial social media post.</li><li>Communications Team: Draft an official email announcement containing the schedule, registration instructions, speaker details, and contact information.</li><li>Promotional Requirement: Display a clear registration deadline across all promotional materials.</li></ul>",
@@ -98,7 +142,7 @@
         },
         {
           "id": "ai-sec-1786959646975-6",
-          "number": "8",
+          "number": "12",
           "title": "Event Program and Project Competition",
           "isFixed": false,
           "content": "<p>The agreed order of events for the symposium program is as follows:</p><ol><li>Welcome address</li><li>Keynote session</li><li>Student presentation session</li><li>Panel discussion</li><li>Short networking break</li><li>Interactive technology demonstration</li><li>Afternoon session: Student project presentations</li></ol><p>The top three student projects presented during the afternoon session will receive certificates and prizes.</p><ul><li>Judging Criteria: Innovation, technical implementation, practical usefulness, presentation quality, and potential social impact.</li><li>Judging Panel: Three faculty members have agreed to serve; confirmation from one external industry representative is pending.</li><li>Project Submission Deadline: Proposed for September 10, with late submissions not accepted to allow adequate review time.</li></ul>",
@@ -108,7 +152,7 @@
         },
         {
           "id": "ai-sec-1786959646975-7",
-          "number": "9",
+          "number": "13",
           "title": "Rehearsal and Communication Guidelines",
           "isFixed": false,
           "content": "<ul><li>Technical Rehearsal: A complete technical rehearsal will occur one day prior to the symposium, which all team leaders must attend.</li><li>Regular Communication: Team leaders must share short progress updates every two days via the organizing committee group and immediately report any delays.</li><li>Approval Process: Any major adjustments to the event schedule, budget, speakers, or venue must be cleared with the faculty coordinator.</li></ul>",
@@ -118,7 +162,7 @@
         },
         {
           "id": "ai-sec-1786959646975-8",
-          "number": "10",
+          "number": "14",
           "title": "Next Meeting Agenda",
           "isFixed": false,
           "content": "<p>The next organizing committee meeting will be held on Friday afternoon to review:</p><ul><li>Online registration system progress</li><li>Keynote speaker confirmations</li><li>Final volunteer list</li><li>Promotional materials</li><li>Venue inspection report</li><li>Budget estimates</li><li>Event website progress</li></ul>",
@@ -128,7 +172,7 @@
         },
         {
           "id": "ai-sec-1786958677874-0",
-          "number": "11",
+          "number": "15",
           "title": "Event Overview and Preliminary Work",
           "isFixed": false,
           "content": "<p>The department held a meeting to discuss the progress of the upcoming annual college technology symposium, which is expected to bring together students, faculty members, industry professionals, and representatives from several technology organizations. The meeting began with a review of the work completed during the previous week.</p><p>The organizing team confirmed that the main event theme, “Technology for a Sustainable Future,” had been finalized. The creative team is currently designing the event poster, with suggested changes regarding the placement of the college logo, speaker information, and registration link. The faculty coordinator noted that the registration form must be finalized as soon as possible to open student registrations before the end of the month. The technical team confirmed the online registration system is almost ready, though mobile device testing is still required.</p>",
@@ -138,7 +182,7 @@
         },
         {
           "id": "ai-sec-1786958677874-1",
-          "number": "12",
+          "number": "16",
           "title": "Volunteer Team Creation and Key Responsibilities",
           "isFixed": false,
           "content": "<p>To organize the students who volunteered to help, the committee created separate teams for distinct responsibilities:</p><ul><li>Registration</li><li>Hospitality</li><li>Technical support</li><li>Photography</li><li>Social media promotion</li><li>Stage management</li><li>Guest coordination</li></ul><ul><li>Ananya: Coordinate the registration team and prepare a list of volunteers by Wednesday.</li><li>Rahul: Supervise the technical support team and ensure that microphones, projectors, laptops, internet connection, presentation systems, and backup equipment are tested before the event.</li><li>Hospitality Team: Welcome invited speakers and arrange refreshments. The team will prepare a detailed schedule showing the arrival time of each guest to avoid confusion on the day of the event.</li></ul>",
@@ -148,7 +192,7 @@
         },
         {
           "id": "ai-sec-1786958677874-2",
-          "number": "13",
+          "number": "17",
           "title": "Keynote Speakers",
           "isFixed": false,
           "content": "<p>The committee shortlisted two potential industry experts to deliver the keynote address, based on their experience in artificial intelligence and sustainable technology. The faculty coordinator will contact both speakers to confirm their availability by Friday.</p>",
@@ -158,7 +202,7 @@
         },
         {
           "id": "ai-sec-1786958677874-3",
-          "number": "14",
+          "number": "18",
           "title": "Budget Planning",
           "isFixed": false,
           "content": "<p>Estimated expenses have increased due to additional requirements for printing, refreshments, certificates, decorations, and technical equipment. Because current budget limits may be exceeded if attendance is high, the finance team will prepare two budget plans for submission at the next meeting:</p><ul><li>First budget plan: Assumes approximately 100 participants.</li><li>Second budget plan: Accounts for around 200 participants.</li></ul>",
@@ -168,7 +212,7 @@
         },
         {
           "id": "ai-sec-1786958677874-4",
-          "number": "15",
+          "number": "19",
           "title": "Promotional Strategy",
           "isFixed": false,
           "content": "<p>The social media team presented a promotional plan including Instagram posts, short videos, email announcements, digital posters, and student reminders via college channels. Promotional activities will begin two weeks prior to the event.</p><ul><li>Meera and Joseph: Prepare the first social media post.</li><li>Communications Team: Draft an official email announcement containing the event schedule, registration instructions, speaker details, and contact information.</li><li>Promotional Requirement: Include a clear registration deadline in all materials to encourage early registration.</li></ul>",
@@ -178,7 +222,7 @@
         },
         {
           "id": "ai-sec-1786958677874-5",
-          "number": "16",
+          "number": "20",
           "title": "Event Program and Project Competition",
           "isFixed": false,
           "content": "<p>The agreed schedule for the symposium includes a welcome address, keynote session, student presentation session, panel discussion, short networking break, and interactive technology demonstration. The afternoon session will feature project presentations by selected students, with the best three projects receiving certificates and prizes.</p><p>Project judging criteria consist of innovation, technical implementation, practical usefulness, presentation quality, and potential social impact. Three faculty members will serve as judges, while confirmation is pending from one external industry representative. The proposed project submission deadline is September 10; late submissions may not be accepted to ensure sufficient review time.</p>",
@@ -188,7 +232,7 @@
         },
         {
           "id": "ai-sec-1786958677874-6",
-          "number": "17",
+          "number": "21",
           "title": "Certificates, Documentation, and Venue Preparation",
           "isFixed": false,
           "content": "<ul><li>Certificates: Physical certificates will be prepared in advance following approval of a sample design. Digital participation certificates will be issued using a digital attendance form with unique registration numbers. Rahul will coordinate with the registration team to test the attendance system before the event.</li><li>Photography and Documentation: Important sessions, guest interactions, project demonstrations, and prize distribution will be recorded for the college website and social media. Permission must be obtained prior to publishing participant photos on public platforms.</li><li>Venue Inspection: The facilities team will inspect the main auditorium for seating, power outlets, air-conditioning, lighting, stage arrangements, projector screens, and emergency exits, and prepare a report.</li><li>Technical Rehearsal: A full technical rehearsal with all team leaders will take place one day before the symposium.</li></ul>",
@@ -198,7 +242,7 @@
         },
         {
           "id": "ai-sec-1786958677874-7",
-          "number": "18",
+          "number": "22",
           "title": "Communication Protocol and Next Meeting",
           "isFixed": false,
           "content": "<p>The faculty coordinator emphasized regular communication, requiring team leaders to send progress updates every two days through the organizing committee group and report delays immediately. Major changes to the schedule, budget, speakers, or venue must be cleared with the faculty coordinator.</p><p>The next meeting is scheduled for Friday afternoon to review:</p><ul><li>Registration system</li><li>Speaker confirmations</li><li>Volunteer list</li><li>Promotional materials</li><li>Venue inspection report</li><li>Budget estimates</li><li>Progress of the event website</li></ul>",
@@ -208,7 +252,7 @@
         },
         {
           "id": "ai-sec-1786958571999-0",
-          "number": "19",
+          "number": "23",
           "title": "Organizing Committee Meeting",
           "isFixed": false,
           "content": "<p>The next organizing committee meeting will take place on Friday afternoon, during which the team will review the following:</p><ul><li>Registration system</li><li>Speaker confirmations</li><li>Volunteer list</li><li>Promotional materials</li><li>Venue inspection report</li><li>Budget estimates</li><li>Progress of the event website</li></ul>",
@@ -218,7 +262,7 @@
         },
         {
           "id": "ai-sec-1786793929702-0",
-          "number": "20",
+          "number": "24",
           "title": "Platform Overview and Objectives",
           "isFixed": false,
           "content": "<p>C2Talents is a full-stack, AI-assisted higher-education discovery and admission platform designed to centralize college search, institutional evaluation, and application processes for Indian students. Operating on a student-first model supported by a dynamic Admin CMS, the platform replaces fragmented search across multiple websites with a unified, data-driven system.</p><ul><li>Centralizes college search, academic stream exploration, and course discovery into a single platform.</li><li>Provides comprehensive decision tools including side-by-side college comparison, cutoff analysis, financial aid exploration, and placement tracking.</li><li>Features a dynamic database architecture allowing administrators to update content without modifying frontend code.</li></ul>",
@@ -228,7 +272,7 @@
         },
         {
           "id": "ai-sec-1786793929702-1",
-          "number": "21",
+          "number": "25",
           "title": "Technical Architecture and Technology Stack",
           "isFixed": false,
           "content": "<p>C2Talents is built as a unified Next.js application using TypeScript across both frontend and backend layers. Frontend components handle public student interactions and administrative CMS interfaces, while backend functionality manages data logic, security, and integration services without requiring a separate server framework.</p><ul><li>Frontend: Next.js, React, TypeScript, and Tailwind CSS powering a responsive, component-based user interface.</li><li>Backend: Next.js App Router and TypeScript Route Handlers managing business logic, API endpoints, authentication, and email services.</li><li>Database Layer: Prisma ORM managing structured relational data, pre-populated with an imported dataset of 245 colleges and 4,129 courses.</li><li>Authentication: JWT-based authentication using HTTP-only cookies, password hashing with bcrypt, and server-side role-based access control.</li><li>AI Processing: Integrated Google Gemini 2.5 Flash for automated college data extraction and intelligent student guidance.</li></ul>",
@@ -238,7 +282,7 @@
         },
         {
           "id": "ai-sec-1786793929702-2",
-          "number": "22",
+          "number": "26",
           "title": "Student Discovery and Experience Features",
           "isFixed": false,
           "content": "<p>The student-facing platform provides clean navigation, high-quality visual identity, and comprehensive research tools to guide students from initial discovery through institution selection.</p><ul><li>Multi-Parametric Discovery: Search colleges by name, location, stream, ranking, ratings, and course offerings.</li><li>Asset Management: Displays official college logos using original aspect ratios alongside separate dynamically managed banner images.</li><li>Institutional Comparison: Visual side-by-side comparison tool covering NIRF rankings, NAAC accreditation, placement packages, and fee structures.</li><li>Stream and Destination Hubs: Animated discovery sections organized by academic streams (Engineering, Management, Medical, Law) and major Indian educational cities.</li><li>Exam Corner and Cutoff Predictor: Information hubs for major entrance exams (JEE Main, TNEA, NEET UG, CAT) featuring historical cutoff trends and official authority verification links.</li><li>Scholarship Directory: Searchable catalog of verified government, private, merit-based, and category-specific financial aid schemes.</li><li>Ask AI Counselor: Conversational AI assistant supporting stream exploration, decision-making, and academic guidance.</li></ul>",
@@ -248,7 +292,7 @@
         },
         {
           "id": "ai-sec-1786793929702-3",
-          "number": "23",
+          "number": "27",
           "title": "Application Workflow and Dynamic Lead Generation",
           "isFixed": false,
           "content": "<p>C2Talents provides a dynamic, end-to-end application system that guides registered students through institutional application submissions while delivering verified leads to administrators.</p><ul><li>Student Registration: Requires user authentication before application initiation to link submissions with student profiles.</li><li>Contextual Course Filtering: Application forms dynamically fetch and display only the courses offered by the specifically selected college.</li><li>Adaptive Data Collection: Form fields dynamically adapt based on qualification level, gathering school records, undergraduate details for PG applicants, and uploaded marksheets.</li><li>Lead Management: Submitted applications transfer to the Admin CMS for operational review across statuses such as Submitted, Under Review, Contacted, Approved, Rejected, and Completed.</li><li>Application Tracker: Real-time portal enabling students to monitor the status of their submitted applications.</li></ul>",
@@ -258,7 +302,7 @@
         },
         {
           "id": "ai-sec-1786793929702-4",
-          "number": "24",
+          "number": "28",
           "title": "Dynamic Email System and Communication Management",
           "isFixed": false,
           "content": "<p>The platform includes an enterprise-grade dynamic email engine that automates corporate-style communications for user onboarding, account events, and college publishing workflows.</p><ul><li>CMS Template Manager: In-system editor allowing administrators to dynamically alter email subject lines, body copy, CTA buttons, and styling.</li><li>Dynamic Placeholders: Supports template variables such as college names, contact persons, and portal links that automatically populate upon sending.</li><li>Drafting and Audit Control: Features live template previews, version management, draft saving, and audit logs before publishing updates.</li><li>Configurable SMTP Engine: Native SMTP setup supporting custom hosts, ports, credentials, and real-time delivery testing.</li></ul>",
@@ -268,7 +312,7 @@
         },
         {
           "id": "ai-sec-1786793929702-5",
-          "number": "25",
+          "number": "29",
           "title": "Administrative CMS and Platform Controls",
           "isFixed": false,
           "content": "<p>The C2Talents Admin CMS acts as the central control center for platform data, institutional onboarding, SEO optimization, and platform analytics.</p><ul><li>AI-Assisted Data Extraction: Enter a college website URL to automatically extract structured data and populate comprehensive profiles for review.</li><li>Institutional Onboarding: Manage college registration requests, profile approvals, and automated institutional notifications.</li><li>Content &amp; Image Control: Dynamic Header Image Manager for controlling hero assets alongside CMS sections for educational news and alerts.</li><li>Analytics &amp; Data Integrity: Central dashboard tracking application counts, lead activity, and search metrics while strictly enforcing factual data quality standards.</li></ul>",
@@ -278,7 +322,7 @@
         },
         {
           "id": "ai-sec-1786691718766-0",
-          "number": "26",
+          "number": "30",
           "title": "Project Goals",
           "isFixed": false,
           "content": "<p>The primary objectives focus on achieving successful project delivery and alignment with key stakeholder expectations.</p><ul><li>Define clear and measurable project deliverables.</li><li>Ensure timely execution within the allocated budget.</li><li>Maintain high quality standards and stakeholder satisfaction.</li></ul>",
@@ -288,7 +332,7 @@
         },
         {
           "id": "ai-sec-1786692055407-0",
-          "number": "27",
+          "number": "31",
           "title": "Event Overview and Registration Progress",
           "isFixed": false,
           "content": "<p>The department reviewed progress for the upcoming annual college technology symposium, which will bring together students, faculty members, industry professionals, and representatives from technology organizations.</p><ul><li>Event Theme: Finalized as &quot;Technology for a Sustainable Future&quot;.</li><li>Event Poster: Currently being designed, with revisions needed for the placement of the college logo, speaker information, and registration link.</li><li>Registration System: The online system is nearly complete pending mobile device testing, and the registration form will be finalized soon to open student registration before the end of the month.</li></ul>",
@@ -298,7 +342,7 @@
         },
         {
           "id": "ai-sec-1786692055407-1",
-          "number": "28",
+          "number": "32",
           "title": "Team Assignments and Responsibilities",
           "isFixed": false,
           "content": "<p>To organize student volunteers, the committee established dedicated teams for registration, hospitality, technical support, photography, social media promotion, stage management, and guest coordination.</p><ul><li>Ananya: Leading the registration team and compiling the final volunteer list by Wednesday.</li><li>Rahul: Supervising the technical support team and testing all microphones, projectors, laptops, internet connections, presentation systems, and backup equipment.</li><li>Hospitality Team: Responsible for welcoming invited speakers, arranging refreshments, and preparing a detailed guest arrival schedule.</li></ul>",
@@ -308,7 +352,7 @@
         },
         {
           "id": "ai-sec-1786692055407-2",
-          "number": "29",
+          "number": "33",
           "title": "Keynote Speakers and Budget Planning",
           "isFixed": false,
           "content": "<p>The committee addressed keynote invitations and budget strategy to manage rising costs associated with printing, refreshments, certificates, decorations, and technical equipment.</p><ul><li>Keynote Speakers: Shortlisted two industry experts in artificial intelligence and sustainable technology; the faculty coordinator will confirm availability by Friday.</li><li>Budget Estimates: The finance team will present two budget options at the next meeting, one structured for 100 participants and another for 200 participants.</li></ul>",
@@ -318,7 +362,7 @@
         },
         {
           "id": "ai-sec-1786692055407-3",
-          "number": "30",
+          "number": "34",
           "title": "Promotional and Communication Strategy",
           "isFixed": false,
           "content": "<p>A promotional campaign will launch two weeks prior to the event across college communication channels, emphasizing the registration deadline to encourage early sign-ups.</p><ul><li>Promotional Channels: Includes Instagram posts, short videos, email announcements, digital posters, and student reminders.</li><li>Meera and Joseph: Assigned to create the initial social media post.</li><li>Communications Team: Drafting an official email announcement containing the schedule, registration instructions, speaker details, and contact info.</li></ul>",
@@ -328,7 +372,7 @@
         },
         {
           "id": "ai-sec-1786692055407-4",
-          "number": "31",
+          "number": "35",
           "title": "Event Program and Project Competition",
           "isFixed": false,
           "content": "<p>The event schedule includes a welcome address, keynote, student presentations, panel discussion, networking break, tech demo, and an afternoon project competition.</p><ul><li>Awards: The top three student project presentations will receive certificates and prizes.</li><li>Judging Criteria: Projects will be evaluated on innovation, technical implementation, practical usefulness, presentation quality, and social impact.</li><li>Judging Panel: Three faculty members are confirmed, with confirmation pending from one external industry representative.</li><li>Submission Deadline: Set for September 10, with late submissions not accepted.</li></ul>",
@@ -338,7 +382,7 @@
         },
         {
           "id": "ai-sec-1786692055407-5",
-          "number": "32",
+          "number": "36",
           "title": "Venue Readiness, Certificates, and Media",
           "isFixed": false,
           "content": "<p>Arrangements are underway for issuing certificates, capturing event media, inspecting the auditorium, and conducting pre-event rehearsals.</p><ul><li>Certificates: Physical certificate samples will be pre-approved before printing, and digital participation certificates will be issued using a unique registration attendance system managed by Rahul and the registration team.</li><li>Documentation &amp; Privacy: The photography and documentation team will record key sessions and award distributions for the website and social media, ensuring participant permission is obtained prior to publication.</li><li>Venue Inspection &amp; Rehearsal: The facilities team will inspect auditorium seating, power outlets, AC, lighting, stage, screens, and emergency exits, while a full technical rehearsal with all team leaders will take place one day before the event.</li></ul>",
@@ -348,7 +392,7 @@
         },
         {
           "id": "ai-sec-1786961336797-0",
-          "number": "33",
+          "number": "37",
           "title": "Project Overview",
           "isFixed": false,
           "content": "<p>C2Talents is a full-stack, AI-assisted higher-education discovery and admission platform designed to help Indian students find, compare, evaluate, and apply to colleges and courses from a single platform.</p><p>The core idea of C2Talents is to bring together the major activities a student normally performs across multiple education websites into one centralized system. Students can search for colleges, explore academic streams, view college information, compare institutions, check entrance-exam information and cutoffs, explore scholarships, review placement information, and submit applications.</p><p>The platform is designed around a student-first experience, while a powerful Admin CMS manages the underlying college, course, application, content, email, and platform data dynamically.</p><p>The project is not intended to be a static college-information website. The architecture is designed so that most important information is stored in the database and rendered dynamically on the frontend. Administrators can update information through the CMS without modifying frontend code.</p>",
@@ -358,7 +402,7 @@
         },
         {
           "id": "ai-sec-1786961336797-1",
-          "number": "34",
+          "number": "38",
           "title": "Main Objective",
           "isFixed": false,
           "content": "<p>The primary objective of C2Talents is to empower Indian students to discover the right college and course, understand admission opportunities, compare institutions, access financial-aid information, and submit applications through a single data-driven platform.</p><p>The platform focuses on:</p><ul><li>College discovery</li><li>Course discovery</li><li>College comparison</li><li>Admission guidance</li><li>Application/lead generation</li><li>Scholarships</li><li>Entrance examinations</li><li>Cutoff information</li><li>Placement information</li><li>College profiles</li><li>Student accounts</li><li>Dynamic content management</li><li>AI-assisted college data collection</li><li>Automated institutional communication</li><li>Admin-controlled email templates</li><li>Dynamic website content</li></ul>",
@@ -368,7 +412,7 @@
         },
         {
           "id": "ai-sec-1786961336797-2",
-          "number": "35",
+          "number": "39",
           "title": "Overall System Architecture",
           "isFixed": false,
           "content": "<p>C2Talents follows a full-stack architecture where the same Next.js application handles both the frontend and backend.</p><p>The high-level architecture links Student Website and Admin CMS through a Next.js application, separated into React/TSX Frontend and Route Handlers Backend with Business Logic and Prisma ORM connecting to the Database.</p><p>The project uses Next.js with TypeScript for the application layer.</p><p>Next.js is responsible for both:</p><ul><li>Frontend UI</li><li>Backend API functionality</li></ul><p>The backend uses Next.js Route Handlers such as route.ts.</p><p>Prisma is used as the ORM/database access layer.</p>",
@@ -378,7 +422,7 @@
         },
         {
           "id": "ai-sec-1786961336797-3",
-          "number": "36",
+          "number": "40",
           "title": "Frontend",
           "isFixed": false,
           "content": "<ul><li>Next.js</li><li>React</li><li>TypeScript</li><li>HTML</li><li>CSS</li><li>Tailwind CSS</li><li>Responsive UI</li><li>Modern component-based architecture</li></ul><p>The frontend provides the public student-facing website and the administrative CMS interface.</p>",
@@ -388,7 +432,7 @@
         },
         {
           "id": "ai-sec-1786961336797-4",
-          "number": "37",
+          "number": "41",
           "title": "Backend",
           "isFixed": false,
           "content": "<p>The backend is implemented inside the Next.js application.</p><p>Backend technologies:</p><ul><li>Next.js App Router</li><li>Next.js Route Handlers</li><li>TypeScript</li><li>Server-side business logic</li><li>API endpoints</li><li>Authentication</li><li>Database operations</li><li>Email services</li><li>AI processing</li></ul><p>There is no requirement for a separate Express.js backend in the current architecture.</p>",
@@ -398,7 +442,7 @@
         },
         {
           "id": "ai-sec-1786961336797-5",
-          "number": "38",
+          "number": "42",
           "title": "Database Layer",
           "isFixed": false,
           "content": "<p>The project uses Prisma ORM for database communication.</p><p>The current development configuration uses a Prisma-managed database, with the project context also containing imported MySQL college/course data.</p><p>The important architectural principle is that frontend components should not directly manage database logic. Database access is handled through the backend and Prisma.</p>",
@@ -408,7 +452,7 @@
         },
         {
           "id": "ai-sec-1786961336797-6",
-          "number": "39",
+          "number": "43",
           "title": "Authentication",
           "isFixed": false,
           "content": "<p>The application uses authentication mechanisms including:</p><ul><li>JWT-based authentication</li><li>HTTP-only cookies</li><li>Password hashing using bcrypt</li><li>Role-based access concepts</li></ul><p>The Admin CMS is intended to be protected so that unauthorized users cannot access administrative functionality.</p><p>The public website and the Admin CMS are treated as separate access experiences.</p>",
@@ -418,7 +462,7 @@
         },
         {
           "id": "ai-sec-1786961336797-7",
-          "number": "40",
+          "number": "44",
           "title": "Public Student Website",
           "isFixed": false,
           "content": "<p>The public website is the primary interface for students.</p><p>The website provides a modern education-platform design using the C2Talents visual identity.</p><p>The main navigation includes areas such as:</p><ul><li>Home</li><li>Colleges</li><li>Explore Streams</li><li>Scholarships</li><li>Exam Corner</li><li>Application Tracker</li><li>Ask AI Counselor</li><li>Register College</li></ul><p>The website also contains a college registration option for institutions.</p>",
@@ -428,7 +472,7 @@
         },
         {
           "id": "ai-sec-1786961336797-8",
-          "number": "41",
+          "number": "45",
           "title": "Home Page",
           "isFixed": false,
           "content": "<p>The homepage acts as the primary discovery interface.</p><p>The hero section contains dynamic background/banner images, main education-focused headline, college search, course search, city search, quick category links, college discovery functionality, and AI-assisted guidance.</p><p>The hero background images are intended to be managed dynamically rather than permanently hardcoded.</p><p>The Admin CMS includes a Header Images section where administrators can add high-quality images and assign their display position.</p><p>This allows the homepage hero/banner images to be changed without modifying application code.</p>",
@@ -438,7 +482,7 @@
         },
         {
           "id": "ai-sec-1786961336797-9",
-          "number": "42",
+          "number": "46",
           "title": "Dynamic Header Image Management",
           "isFixed": false,
           "content": "<p>A dedicated Header Images menu exists inside the Admin CMS.</p><p>Administrators can:</p><ul><li>Upload/add header images</li><li>Manage multiple images</li><li>Assign image positions</li><li>Control which image appears in which position</li><li>Update images dynamically</li></ul><p>The system is designed to support high-quality images.</p><p>The frontend retrieves these images dynamically from the database rather than using hardcoded image paths.</p><p>The header/banner implementation also requires careful image rendering so that important parts of an image are not unnecessarily cropped.</p><p>The intended visual result is a professional, high-quality education-platform hero section with enhanced, colorful background photography.</p>",
@@ -448,7 +492,7 @@
         },
         {
           "id": "ai-sec-1786961336797-10",
-          "number": "43",
+          "number": "47",
           "title": "College Discovery",
           "isFixed": false,
           "content": "<p>The college discovery system is one of the core features of C2Talents.</p><p>Students can search for colleges using college name, location, city, course, academic stream, and other relevant filters.</p><p>The college listing displays information such as college name, location, ranking, placement information, rating, apply option, compare option, and college logo.</p><p>A key requirement is that the listing should use the official college logo, not a random campus photograph.</p><p>The data model should therefore distinguish between logoUrl and imageUrl / bannerImageUrl.</p><p>The logo should preserve its original aspect ratio and be displayed using a clean object-fit: contain presentation.</p>",
@@ -458,7 +502,7 @@
         },
         {
           "id": "ai-sec-1786961336797-11",
-          "number": "44",
+          "number": "48",
           "title": "College Database",
           "isFixed": false,
           "content": "<p>The project has a large college dataset. An imported dataset contains approximately 245 colleges and 4,129 courses.</p><p>The imported dataset includes college and course information.</p><p>Important college fields include:</p><ul><li>College ID</li><li>College name</li><li>College category</li><li>Location</li><li>Normalized location</li><li>Website</li><li>Email</li><li>Phone</li><li>NAAC grade</li><li>Principal name</li><li>Autonomous status</li><li>NIRF rank</li><li>University category</li><li>Hostel availability</li><li>Google rating</li><li>Latitude</li><li>Longitude</li><li>Placement score</li><li>Co-education status</li><li>UGC recognition</li><li>Ownership</li></ul><p>The C2Talents CMS also extends the college information model with additional fields covering SEO, gallery, AI-generated descriptions, facilities, admissions, fees, hostel, placements, scholarships, and education loans.</p><p>The goal is to provide students with a detailed college profile rather than only basic contact information.</p>",
@@ -468,7 +512,7 @@
         },
         {
           "id": "ai-sec-1786961336797-12",
-          "number": "45",
+          "number": "49",
           "title": "AI College Data Collection",
           "isFixed": false,
           "content": "<p>One of the important C2Talents features is AI-assisted college data collection.</p><p>An administrator can provide a college website URL. The system can use AI to extract relevant information from the college website and populate the college record.</p><p>The intended flow is: Admin enters College Website URL -&gt; AI/Data Extraction -&gt; College Information Processing -&gt; Structured College Data -&gt; Admin Review -&gt; Save College -&gt; Database -&gt; Public College Profile.</p><p>The system is designed to avoid manually hardcoding college information into frontend components.</p><p>Once saved, the college information becomes available dynamically to the public website.</p>",
@@ -478,7 +522,7 @@
         },
         {
           "id": "ai-sec-1786961336797-13",
-          "number": "46",
+          "number": "50",
           "title": "College Profile",
           "isFixed": false,
           "content": "<p>Each college has a dedicated profile page.</p><p>The profile can contain:</p><ul><li>College name</li><li>Location</li><li>Contact information</li><li>Website</li><li>Accreditation</li><li>NIRF information</li><li>About college</li><li>History</li><li>Key highlights</li><li>Why choose the college</li><li>Campus life</li><li>Facilities</li><li>Placements</li><li>Top recruiters</li><li>Admission guide</li><li>Eligibility</li><li>Hostel</li><li>Scholarships</li><li>Research and innovation</li><li>Student activities</li><li>FAQ</li><li>SEO content</li></ul><p>The profile is designed to provide students with a complete overview before they decide whether to apply.</p>",
@@ -488,7 +532,7 @@
         },
         {
           "id": "ai-sec-1786961336797-14",
-          "number": "47",
+          "number": "51",
           "title": "College Courses",
           "isFixed": false,
           "content": "<p>Courses are connected to colleges dynamically.</p><p>This is particularly important for the application system. If a student selects a particular college, the application form should display only the courses available at that selected college.</p><p>Courses must not be globally displayed without considering the selected institution.</p>",
@@ -498,7 +542,7 @@
         },
         {
           "id": "ai-sec-1786961336797-15",
-          "number": "48",
+          "number": "52",
           "title": "College Comparison",
           "isFixed": false,
           "content": "<p>C2Talents includes an institutional comparison feature. Students can select multiple colleges and compare them.</p><p>The comparison experience can consider:</p><ul><li>Ranking</li><li>Accreditation</li><li>Courses</li><li>Placement</li><li>Highest package</li><li>Average package</li><li>Rating</li><li>Location</li><li>Other institutional information</li></ul><p>The UI is designed to provide a clear side-by-side comparison.</p><p>The platform also contains a visual Institutional Comparison section featuring comparison criteria such as NIRF, NAAC, CTC/placement information, package insights, and side-by-side comparison.</p><p>The comparison experience should remain professional and easy to understand for students.</p>",
@@ -508,7 +552,7 @@
         },
         {
           "id": "ai-sec-1786961336797-16",
-          "number": "49",
+          "number": "53",
           "title": "Study Streams / Study Goals",
           "isFixed": false,
           "content": "<p>C2Talents includes a Study Goal or academic-stream discovery section.</p><p>Students can explore areas such as:</p><ul><li>Engineering</li><li>Medical</li><li>Arts &amp; Science</li><li>MBA / Management</li><li>Law</li><li>Other academic streams</li></ul><p>Each stream can display number of colleges, popular degrees, stream-specific information, and relevant institutions.</p><p>The section is designed to help students begin their college search from their intended academic field.</p><p>The UI includes animated interactions and modern visual cards.</p>",
@@ -518,7 +562,7 @@
         },
         {
           "id": "ai-sec-1786961336797-17",
-          "number": "50",
+          "number": "54",
           "title": "Top Study Destinations",
           "isFixed": false,
           "content": "<p>The platform contains a Top Study Destinations section to help students explore colleges based on location.</p><p>Example destinations include:</p><ul><li>Chennai</li><li>Coimbatore</li><li>Vellore</li><li>Bangalore</li><li>Trichy</li><li>Madurai</li></ul><p>The destination cards display the number of colleges available in each location.</p><p>The section is intended to be interactive and visually engaging.</p>",
@@ -528,7 +572,7 @@
         },
         {
           "id": "ai-sec-1786961336797-18",
-          "number": "51",
+          "number": "55",
           "title": "Entrance Exam / Exam Corner",
           "isFixed": false,
           "content": "<p>C2Talents includes an Exam Corner to provide students with information about major entrance examinations and admission-related timelines.</p><p>The exam section can contain:</p><ul><li>Exam name</li><li>Examination description</li><li>Registration information</li><li>Important dates</li><li>Results</li><li>Cutoff information</li><li>Participating colleges</li><li>Official website links</li></ul><p>Examples of major exams represented in the interface include JEE Main, TNEA, NEET UG, and CAT.</p><p>The system should distinguish between official information and historical/indicative information.</p><p>For student safety, cutoff information should clearly indicate when values are estimates or historical and should encourage verification against official authorities.</p>",
@@ -538,7 +582,7 @@
         },
         {
           "id": "ai-sec-1786961336797-19",
-          "number": "52",
+          "number": "56",
           "title": "Cutoff Information",
           "isFixed": false,
           "content": "<p>The platform contains a Cutoffs &amp; Exam Predictor section intended to help students understand previous cutoff trends and potential admission opportunities.</p><p>The interface can display:</p><ul><li>Exam</li><li>Category</li><li>Cutoff</li><li>Participating colleges</li><li>Admission/counselling status</li><li>Official authority link</li></ul><p>The system must avoid presenting estimated cutoff numbers as guaranteed admission results.</p><p>The platform should clearly communicate that historical cutoff information is for reference and should be verified with official authorities.</p>",
@@ -548,7 +592,7 @@
         },
         {
           "id": "ai-sec-1786961336797-20",
-          "number": "53",
+          "number": "57",
           "title": "Scholarship Directory",
           "isFixed": false,
           "content": "<p>C2Talents also contains a Scholarships Directory to help students discover financial-aid opportunities.</p><p>Scholarship information can include:</p><ul><li>Scholarship name</li><li>Provider</li><li>Government/private classification</li><li>Eligibility</li><li>Course/degree</li><li>Category</li><li>State</li><li>Deadline</li><li>Official application portal</li><li>Scholarship type</li></ul><p>The interface contains filtering options such as:</p><ul><li>All</li><li>Government</li><li>Private</li><li>Merit-based</li><li>Need-based</li><li>Girl students</li><li>SC/ST</li><li>BC/MBC</li><li>Minority</li><li>Course/degree</li><li>Deadline status</li></ul><p>The scholarship data should be based on genuine, verifiable schemes rather than placeholder content because students may use this information for actual financial decisions.</p>",
@@ -558,7 +602,7 @@
         },
         {
           "id": "ai-sec-1786961336797-21",
-          "number": "54",
+          "number": "58",
           "title": "Student Registration and Authentication",
           "isFixed": false,
           "content": "<p>A student must have an account before submitting a college application.</p><p>The intended flow is: Student visits College -&gt; Clicks Apply -&gt; Login / Register -&gt; Student Account -&gt; Application Form -&gt; Submit Application.</p><p>The registration/login process allows the platform to associate applications with the correct student.</p><p>The student can subsequently use the application tracker to monitor application-related information.</p>",
@@ -568,7 +612,7 @@
         },
         {
           "id": "ai-sec-1786961336797-22",
-          "number": "55",
+          "number": "59",
           "title": "Student Application / Lead Generation",
           "isFixed": false,
           "content": "<p>The application system is a major business feature of C2Talents. When a student visits a college profile and decides to apply, the student should be guided into a structured application process.</p><p>The application flow is: Student selects College -&gt; Student clicks Apply -&gt; Login / Register -&gt; Application Form -&gt; Personal Details -&gt; Academic Details -&gt; Course Selection -&gt; Marks / Qualification Details -&gt; Upload Marksheet -&gt; Review -&gt; Submit -&gt; Application Success -&gt; Admin Lead.</p><p>The application form should dynamically adapt to the student&#039;s selected education level.</p><p>For example, if the student is applying for a postgraduate course, the system can additionally request relevant undergraduate college information.</p>",
@@ -578,7 +622,7 @@
         },
         {
           "id": "ai-sec-1786961336797-23",
-          "number": "56",
+          "number": "60",
           "title": "Dynamic Course Selection in Application",
           "isFixed": false,
           "content": "<p>A critical requirement is that only courses offered by the selected college should appear in the application form.</p><p>The form should dynamically query the selected college&#039;s course list and should never display unrelated courses from other colleges.</p><p>Example: For PSG College of Technology, only available courses such as B.E. Computer Science and Engineering, B.E. Electronics and Communication Engineering, and B.E. Mechanical Engineering should be available for selection.</p>",
@@ -588,7 +632,7 @@
         },
         {
           "id": "ai-sec-1786961336797-24",
-          "number": "57",
+          "number": "61",
           "title": "Academic Information",
           "isFixed": false,
           "content": "<p>The student application can collect academic information such as:</p><ul><li>School details</li><li>Board</li><li>Year of completion</li><li>Marks/percentage</li><li>Academic qualification</li><li>Undergraduate college for postgraduate applicants</li><li>Undergraduate qualification details</li><li>Relevant marks</li></ul><p>The form should dynamically ask additional information based on the student&#039;s selected application type.</p>",
@@ -598,7 +642,7 @@
         },
         {
           "id": "ai-sec-1786961336797-25",
-          "number": "58",
+          "number": "62",
           "title": "Marksheet Upload",
           "isFixed": false,
           "content": "<p>The application process includes document upload where students can upload their marksheet or relevant academic document.</p><p>The system should associate the uploaded document with the student&#039;s application.</p><p>The document becomes available to authorized administrators for application review.</p>",
@@ -608,7 +652,7 @@
         },
         {
           "id": "ai-sec-1786961336797-26",
-          "number": "59",
+          "number": "63",
           "title": "Application Submission Confirmation",
           "isFixed": false,
           "content": "<p>After successfully completing the application, the student should receive a professional confirmation message.</p><p>The intended message is: Your application has been submitted successfully. Our admissions team will review your details and contact you regarding the next steps.</p><p>The confirmation should be professional and reassuring without implying guaranteed admission.</p>",
@@ -618,7 +662,7 @@
         },
         {
           "id": "ai-sec-1786961336797-27",
-          "number": "60",
+          "number": "64",
           "title": "Admin Leads",
           "isFixed": false,
           "content": "<p>All submitted student applications become available inside the Admin CMS under a Leads or equivalent application-management area.</p><p>Administrators should be able to view the submitted information.</p><p>Lead information can include:</p><ul><li>Student name</li><li>Email</li><li>Phone</li><li>Selected college</li><li>Selected course</li><li>Academic details</li><li>Application date</li><li>Uploaded documents</li><li>Application status</li><li>Review status</li><li>Contact information</li></ul><p>The purpose is to give the administrative team a centralized view of potential student applicants.</p>",
@@ -628,7 +672,7 @@
         },
         {
           "id": "ai-sec-1786961336797-28",
-          "number": "61",
+          "number": "65",
           "title": "Application Status",
           "isFixed": false,
           "content": "<p>The application workflow can support statuses such as:</p><ul><li>Submitted</li><li>Under Review</li><li>Contacted</li><li>Approved</li><li>Rejected</li><li>Completed</li></ul><p>The status can be managed by authorized administrators.</p><p>Students can use the Application Tracker to view relevant application progress.</p>",
@@ -638,7 +682,7 @@
         },
         {
           "id": "ai-sec-1786961336797-29",
-          "number": "62",
+          "number": "66",
           "title": "Admin CMS",
           "isFixed": false,
           "content": "<p>The C2Talents Admin CMS is the control center for managing the platform.</p><p>The Admin Portal contains areas such as:</p><ul><li>Dashboard</li><li>Registration Requests</li><li>Submitted Colleges</li><li>All Colleges</li><li>Header Images</li><li>Add College AI</li><li>Categories</li><li>Courses</li><li>News &amp; Alerts</li><li>Users &amp; Leads</li><li>Analytics</li><li>Email Templates</li><li>SMTP Settings</li></ul><p>The CMS is designed to keep the public website dynamically connected to administrative data.</p>",
@@ -648,7 +692,7 @@
         },
         {
           "id": "ai-sec-1786961336797-30",
-          "number": "63",
+          "number": "67",
           "title": "College Registration Requests",
           "isFixed": false,
           "content": "<p>Colleges can submit registration requests to C2Talents.</p><p>The Admin CMS provides a Registration Requests section where administrators can review these requests.</p><p>The interface can display college name, location, contact person, email, phone, website, request status, notes, and actions.</p><p>Possible statuses include:</p><ul><li>Pending</li><li>Approved</li><li>Rejected</li><li>Published</li></ul><p>Administrators can approve or reject requests. Once a college is approved/published, the corresponding workflow can trigger an automated institutional email.</p>",
@@ -658,7 +702,7 @@
         },
         {
           "id": "ai-sec-1786961336797-31",
-          "number": "64",
+          "number": "68",
           "title": "College Publishing Workflow",
           "isFixed": false,
           "content": "<p>The intended workflow is: College Registration Request -&gt; Admin Review -&gt; Approve -&gt; College Data Submitted -&gt; Admin Review -&gt; Publish -&gt; College Appears Publicly -&gt; Professional Email Sent to College.</p><p>The publishing process is therefore connected to the communication system.</p>",
@@ -668,7 +712,7 @@
         },
         {
           "id": "ai-sec-1786961336797-32",
-          "number": "65",
+          "number": "69",
           "title": "Professional Email System",
           "isFixed": false,
           "content": "<p>C2Talents contains a dynamic email system.</p><p>The platform sends emails to colleges and users for events such as:</p><ul><li>Registration request received</li><li>Registration approved</li><li>Registration rejected</li><li>Profile submission</li><li>Profile published</li><li>Password reset</li><li>Account/team invitation</li><li>Welcome email</li><li>Other platform notifications</li></ul><p>A strict requirement is that emails sent from C2Talents must look like professional corporate emails.</p><p>They should not contain:</p><ul><li>Childish emojis</li><li>Casual language</li><li>Excessive decorative elements</li><li>Unprofessional wording</li></ul><p>The emails should resemble official communications from established companies.</p>",
@@ -678,7 +722,7 @@
         },
         {
           "id": "ai-sec-1786961336797-33",
-          "number": "66",
+          "number": "70",
           "title": "Dynamic Email Template Manager",
           "isFixed": false,
           "content": "<p>The Admin CMS contains an Email Template Manager to allow administrators to control the exact format of platform emails.</p><p>The system should not simply show a generic email preview; instead, the actual email templates used by the platform should be editable from the Admin CMS.</p><p>Administrators should be able to modify:</p><ul><li>Email subject</li><li>Preheader</li><li>Header title</li><li>Greeting</li><li>Body content</li><li>CTA button</li><li>CTA URL/variable</li><li>Footer</li><li>Support information</li><li>Styling/HTML</li></ul><p>The email preview should represent the actual email that the system will send.</p>",
@@ -688,7 +732,7 @@
         },
         {
           "id": "ai-sec-1786961336797-34",
-          "number": "67",
+          "number": "71",
           "title": "Dynamic Email Template Workflow",
           "isFixed": false,
           "content": "<p>The intended workflow is: Admin opens Email Template Manager -&gt; Selects email type -&gt; Edits subject/content/style -&gt; Preview updates -&gt; Admin clicks Save -&gt; Template stored in database -&gt; Future emails use saved template.</p><p>The important requirement is that once an administrator changes and saves a template, future emails of that type must use the updated version.</p><p>Email formatting should not remain hardcoded in source code.</p>",
@@ -698,7 +742,7 @@
         },
         {
           "id": "ai-sec-1786961336797-35",
-          "number": "68",
+          "number": "72",
           "title": "Dynamic Variables in Emails",
           "isFixed": false,
           "content": "<p>Email templates support dynamic variables such as {{collegeName}}, {{contactPerson}}, {{portalLink}}, {{supportEmail}}, {{companyName}}, and {{currentYear}}.</p><p>These variables are replaced with actual values when the email is sent.</p><p>This makes the email system reusable across multiple colleges and events.</p>",
@@ -708,7 +752,7 @@
         },
         {
           "id": "ai-sec-1786692055407-6",
-          "number": "69",
+          "number": "73",
           "title": "Governance and Next Meeting",
           "isFixed": false,
           "content": "<p>Communication guidelines were reinforced to ensure smooth coordination across all teams leading up to the symposium.</p><ul><li>Communication Protocol: Team leaders must provide progress updates every two days via the committee group, report delays immediately, and consult the faculty coordinator before finalizing major schedule, budget, speaker, or venue changes.</li><li>Next Meeting: Scheduled for Friday afternoon to review the registration system, speaker confirmations, volunteer list, promotional materials, venue report, budget plans, and event website progress.</li></ul>",
@@ -718,7 +762,7 @@
         },
         {
           "id": "sec-2",
-          "number": "70",
+          "number": "74",
           "title": "About TekQuora",
           "isFixed": true,
           "content": "<p>TekQuora is a technology-driven software development company dedicated to delivering innovative digital solutions that help businesses accelerate their digital transformation. The company specializes in designing and developing high-quality web applications, enterprise software solutions, mobile applications, cloud-based systems, artificial intelligence solutions, and user-centric digital experiences.</p><p>TekQuora's primary objective is to provide reliable, scalable, and performance-oriented software solutions that solve real-world business challenges. By combining technical expertise with modern development methodologies, the company delivers software products that improve operational efficiency, enhance customer engagement, and support long-term business growth.</p>",
@@ -727,7 +771,7 @@
         },
         {
           "id": "sec-3",
-          "number": "71",
+          "number": "75",
           "title": "Business Background",
           "isFixed": true,
           "content": "In today's competitive digital environment, businesses require a strong online presence to establish credibility, communicate their expertise, and attract potential customers. Before the development of this system, TekQuora lacked a centralized and easily manageable platform for presenting its services and updating website content efficiently.\n\nContent modifications required direct changes to application source code, making updates time-consuming and dependent on software developers. This process increased maintenance costs and delayed content publishing. To overcome these challenges, TekQuora initiated the development of a custom Content Management System integrated with a responsive corporate website.",
@@ -736,7 +780,7 @@
         },
         {
           "id": "sec-4",
-          "number": "72",
+          "number": "76",
           "title": "Project Vision",
           "isFixed": true,
           "content": "To establish TekQuora as a trusted technology partner by delivering a modern, secure, scalable, and user-friendly corporate website integrated with a powerful Content Management System that enhances customer engagement, strengthens the company's digital presence, and simplifies website administration.",
@@ -745,7 +789,7 @@
         },
         {
           "id": "sec-5",
-          "number": "73",
+          "number": "77",
           "title": "Project Mission",
           "isFixed": true,
           "content": "The mission of the TekQuora Corporate Website & CMS is to provide a professional digital platform that enables businesses and clients to understand TekQuora's capabilities while empowering administrators to manage all website content through an intuitive, secure, and efficient administration interface.\n\nThe project focuses on delivering an exceptional user experience, maintaining high security standards, ensuring responsive design across devices, and supporting future scalability.",
@@ -754,7 +798,7 @@
         },
         {
           "id": "sec-6",
-          "number": "74",
+          "number": "78",
           "title": "Project Objectives",
           "isFixed": true,
           "content": "The primary objectives of the project are:\n\n• Develop a modern and responsive corporate website representing TekQuora's brand identity.\n• Design and implement a secure administrator dashboard for content management.\n• Enable dynamic management of website content without modifying source code.\n• Showcase company services, portfolio projects, work culture, and technical expertise.\n• Provide a centralized platform for managing customer inquiries.\n• Improve search engine visibility through configurable SEO settings.\n• Deliver a scalable and maintainable application following MVC architecture.\n• Ensure compatibility across desktop, tablet, and mobile devices.\n• Implement secure authentication and authorization mechanisms.\n• Reduce long-term website maintenance efforts through an integrated CMS.",
@@ -763,7 +807,7 @@
         },
         {
           "id": "sec-7",
-          "number": "75",
+          "number": "79",
           "title": "Business Need",
           "isFixed": true,
           "content": "The project addresses several key business challenges:\n\n• Lack of centralized content management.\n• Dependence on developers for routine website updates.\n• Limited visibility of company services and portfolio.\n• Absence of structured inquiry management.\n• Inconsistent branding across website sections.\n• Difficulty maintaining dynamic content.\n• Need for improved customer engagement.\n• Requirement for a scalable platform supporting future enhancements.",
@@ -772,7 +816,7 @@
         },
         {
           "id": "sec-8",
-          "number": "76",
+          "number": "80",
           "title": "Project Scope",
           "isFixed": true,
           "content": "In Scope:\nThe project includes the complete development of the following modules:\n\nPublic Website:\n• Home Page & Interactive Hero Banner\n• About Us Page & Corporate History\n• Our Services Showcase\n• Work Culture & Employee Value Proposition\n• Team Members Directory\n• Project Portfolio & Case Studies\n• Contact Us Form with Interactive Maps\n• Image & Moments Gallery\n• Responsive Navigation Header & Global Footer Management\n\nAdministration Portal:\n• Secure Role-Based Authentication & Dashboard Analytics\n• Hero Banner Management & Header Management\n• Services, Portfolio, Gallery, Team, and Inquiry Management Modules\n• System SEO Configuration & Mail Service Settings\n\nOut of Scope:\n• Online Payment Gateway & E-Commerce Shopping Cart\n• ERP Integration & Multi-language Localization",
@@ -781,7 +825,7 @@
         },
         {
           "id": "sec-9",
-          "number": "77",
+          "number": "81",
           "title": "Project Deliverables",
           "isFixed": true,
           "content": "The project delivers the following core deliverables:\n\n1. Fully Responsive Corporate Website Application\n2. Administrative Content Management System (CMS) Dashboard\n3. SQLite / MySQL Relational Database Schema & Data Models\n4. Contact Inquiry Management & Email Notification System\n5. Comprehensive Technical & User Documentation Manuals",
@@ -790,7 +834,7 @@
         },
         {
           "id": "sec-10",
-          "number": "78",
+          "number": "82",
           "title": "Key Stakeholders",
           "isFixed": true,
           "content": "The key project stakeholders and their respective responsibilities:",
@@ -835,7 +879,7 @@
         },
         {
           "id": "sec-11",
-          "number": "79",
+          "number": "83",
           "title": "Success Criteria",
           "isFixed": true,
           "content": "The project will be considered successful when:\n\n• All planned website pages are fully functional and responsive.\n• The CMS enables administrators to update all website content without code changes.\n• Customer inquiries are stored successfully and email notifications are dispatched.\n• Responsive layouts function flawlessly across desktop, tablet, and mobile viewports.\n• Authentication mechanisms effectively prevent unauthorized administrative access.",
@@ -844,7 +888,7 @@
         },
         {
           "id": "sec-12",
-          "number": "80",
+          "number": "84",
           "title": "Project Constraints",
           "isFixed": true,
           "content": "• Fixed project timeline and milestone delivery dates.\n• Limited development resources and allocated budget.\n• Browser compatibility requirements across major modern browsers.\n• External SMTP dependency for email notifications.",
@@ -853,7 +897,7 @@
         },
         {
           "id": "sec-13",
-          "number": "81",
+          "number": "85",
           "title": "Project Assumptions",
           "isFixed": true,
           "content": "• All project requirements are approved before development phase.\n• Hosting infrastructure supports Node / PHP environment.\n• Client provides official branding assets, logos, and initial copy.",
@@ -862,7 +906,7 @@
         },
         {
           "id": "sec-14",
-          "number": "82",
+          "number": "86",
           "title": "High-Level Risks",
           "isFixed": true,
           "content": "Identified risks and mitigation strategies:",
@@ -910,7 +954,7 @@
         },
         {
           "id": "sec-15",
-          "number": "83",
+          "number": "87",
           "title": "High-Level Timeline",
           "isFixed": true,
           "content": "Project implementation phases and milestones:",
@@ -955,7 +999,7 @@
         },
         {
           "id": "sec-16",
-          "number": "84",
+          "number": "88",
           "title": "Technology Stack",
           "isFixed": true,
           "content": "Technical stack specifications for the system:",
@@ -996,7 +1040,7 @@
         },
         {
           "id": "sec-17",
-          "number": "85",
+          "number": "89",
           "title": "Home Page – Landing Page",
           "isFixed": true,
           "content": "Overview\nThe Home page serves as the primary landing page of the TekQuora Corporate Website. It introduces visitors to the company's vision, services, achievements, projects, work culture, and contact information through a structured and visually engaging interface.\n\nThe page has been designed to create a strong first impression while guiding visitors toward exploring the company's services and portfolio.\n\nKey Features\n• Fully responsive navigation bar\n• Dynamic hero banner\n• Company overview\n• Services overview\n• Featured projects\n• Work culture section\n• Client statistics\n• Gallery preview\n• Contact section\n• Professional footer",
@@ -1011,7 +1055,7 @@
         },
         {
           "id": "sec-18",
-          "number": "86",
+          "number": "90",
           "title": "Hero Section",
           "isFixed": true,
           "content": "Purpose\nThe Hero Section is the first section displayed to visitors after loading the website. It immediately communicates TekQuora's vision and core business offerings through impactful visuals and compelling messaging.\n\nComponents\n\nNavigation Header\nThe top navigation bar provides quick access to all major sections of the website, including:\n• Home\n• About\n• Our Team\n• Our Services\n• Projects\n• Contact\nThe company logo is positioned on the left side of the header, reinforcing brand identity, while the navigation menu enables users to move seamlessly between pages.\n\nHero Banner\nThe hero banner contains the primary marketing message of the organization.\n\nHeadline\nFuture-Ready Technology Solutions\nThis headline emphasizes TekQuora's commitment to delivering innovative, scalable, and future-oriented digital solutions.\n\nSupporting Description\nA concise introductory paragraph highlights the company's expertise in:\n• Web Development\n• Artificial Intelligence\n• Digital Transformation\n• Enterprise Solutions\n• Modern Software Development\n\nBackground Image\nA high-quality workplace photograph showcases TekQuora's collaborative office environment, providing visitors with a visual representation of the company's professional culture and team-oriented approach.\n\nPurpose of the Hero Section\nThe Hero Section aims to:\n• Capture visitor attention immediately.\n• Present the company's core value proposition.\n• Strengthen brand credibility.\n• Encourage users to continue exploring the website.",
@@ -1026,7 +1070,7 @@
         },
         {
           "id": "sec-19",
-          "number": "87",
+          "number": "91",
           "title": "About TekQuora Section",
           "isFixed": true,
           "content": "Overview\nThe About TekQuora section introduces visitors to the company by providing a concise overview of its mission, expertise, and business philosophy.\nIt communicates the organization's commitment to delivering reliable, scalable, and innovative software solutions that support business growth.\n\nCompany Overview\nThis section explains that TekQuora is a technology-driven software company focused on developing:\n• Enterprise Web Applications\n• Mobile Applications\n• Artificial Intelligence Solutions\n• Cloud-Based Systems\n• Custom Software Products\nThe content highlights the company's emphasis on quality, innovation, customer satisfaction, and long-term client relationships.\n\nCompany Highlights\nThe section includes statistical achievements presented through visually attractive information cards.\nThese include:\n• 10+ Years of Industry Experience\n• 500+ Projects Successfully Delivered\n• 6,500+ Satisfied Clients Worldwide\n• 30+ Countries Served\nThese metrics strengthen credibility and demonstrate TekQuora's industry experience and global reach.",
@@ -1046,7 +1090,7 @@
         },
         {
           "id": "sec-20",
-          "number": "88",
+          "number": "92",
           "title": "Our Services Section",
           "isFixed": true,
           "content": "Overview\nThe Services section provides an overview of the company's primary business offerings. Each service is presented using an icon, title, and concise description, allowing visitors to quickly understand TekQuora's technical capabilities.\n\nServices Offered\n\nWeb Development\nDesign and development of scalable, secure, and responsive web applications using modern technologies and industry best practices.\n\nMobile Solutions\nDevelopment of native and cross-platform mobile applications for Android and iOS platforms with seamless user experiences.\n\nArtificial Intelligence & Machine Learning\nImplementation of AI-powered solutions including automation, predictive analytics, machine learning models, and intelligent business applications.\n\nIoT Solutions\nDevelopment of Internet of Things (IoT) platforms enabling connected devices, real-time monitoring, data collection, and intelligent automation.\n\nPurpose\nThis section enables potential clients to understand the breadth of TekQuora's technical expertise while encouraging further exploration of individual services.",
@@ -1066,7 +1110,7 @@
         },
         {
           "id": "sec-21",
-          "number": "89",
+          "number": "93",
           "title": "Work Culture Section",
           "isFixed": true,
           "content": "Overview\nThe Work Culture section reflects the organization's internal environment and values, demonstrating TekQuora's commitment to employee development, teamwork, innovation, and continuous learning.\n\nKey Highlights\nThe section showcases:\n• Collaborative Team Environment\n• Knowledge Sharing\n• Continuous Learning\n• Employee Well-being\n• Professional Development\n• Innovation-Driven Culture\n\nImages from the workplace provide an authentic representation of daily operations and organizational culture.\n\nPurpose\nThis section helps prospective employees, partners, and clients understand the company's values and workplace philosophy.",
@@ -1081,7 +1125,7 @@
         },
         {
           "id": "sec-22",
-          "number": "90",
+          "number": "94",
           "title": "Projects Showcase",
           "isFixed": true,
           "content": "Overview\nThe Projects section highlights TekQuora's completed software solutions and successful client engagements.\nProjects are displayed using professional project cards containing:\n• Project Thumbnail\n• Project Name\n• Technology Category\n• Brief Description\n• Technology Stack\n• Project Classification\n\nSample Projects\n• TVK Tiruchengodu Digital Portal\n• MCC IGH\n• Conference Management System\n• MCC AI Language Platform\n• EchoScribe AI\n• Student Portal Mobile Application\n\nPurpose\nThe Projects page demonstrates TekQuora's technical expertise and provides visitors with examples of completed solutions across multiple domains.",
@@ -1096,7 +1140,7 @@
         },
         {
           "id": "sec-23",
-          "number": "91",
+          "number": "95",
           "title": "Team Section",
           "isFixed": true,
           "content": "Overview\nThe Team page introduces the professionals responsible for delivering TekQuora's software solutions.\nEach team profile includes:\n• Professional Photograph\n• Employee Name\n• Designation\n• Department\n• Office Location\n• Role Category\n\nThe page highlights leadership, software developers, HR professionals, digital marketing executives, interns, and other organizational members.\n\nPurpose\nThe Team page establishes transparency, builds trust with clients, and showcases the expertise of the organization's workforce.",
@@ -1111,7 +1155,7 @@
         },
         {
           "id": "sec-24",
-          "number": "92",
+          "number": "96",
           "title": "Contact Us Section",
           "isFixed": true,
           "content": "Overview\nThe Contact page provides visitors with multiple channels for communicating with TekQuora.\nThe section contains a fully functional inquiry form integrated with the application's backend.\n\nContact Form Fields\n• Full Name\n• Email Address\n• Company Name\n• Project Type / Service\n• Project Details / Message\n\nForm Processing\nUpon submission:\n1. User input is validated.\n2. Inquiry details are stored securely in the database.\n3. An email notification is sent to the administrator.\n4. The inquiry becomes available in the Admin CMS under the Inquiries module.\n\nAdditional Contact Information\nThe page also displays:\n• Office Address\n• Official Email Address\n• Contact Number\n• Interactive Google Map\n\nThis allows clients to connect with the company through multiple communication channels.",
@@ -1126,7 +1170,7 @@
         },
         {
           "id": "sec-25",
-          "number": "93",
+          "number": "97",
           "title": "Footer Section",
           "isFixed": true,
           "content": "Overview\nThe Footer is displayed consistently across all pages and provides quick access to essential information.\n\nFooter Components\n• Company Description\n• Navigation Links\n• Service Links\n• Company Pages\n• Resources\n• Contact Information\n• Social Media Links\n• Copyright Notice\n• Privacy Policy\n• Terms of Service\n\nPurpose\nThe Footer enhances website usability by providing visitors with quick navigation options and important organizational information.",
@@ -1141,7 +1185,7 @@
         },
         {
           "id": "sec-26",
-          "number": "94",
+          "number": "98",
           "title": "Overall Website Features",
           "isFixed": true,
           "content": "The TekQuora Corporate Website incorporates several features that contribute to a professional user experience:\n\n• Fully responsive design for desktop, tablet, and mobile devices.\n• Dynamic content managed through the Admin CMS.\n• Secure inquiry submission with server-side validation.\n• Professional corporate branding and modern UI/UX.\n• Portfolio showcase with categorized project listings.\n• Team directory with structured profile information.\n• Integrated Google Maps and contact details.\n• SEO-ready architecture and configurable metadata.\n• Fast page loading with optimized Laravel and Vite assets.\n• Secure authentication and content management for administrators.",
@@ -1150,7 +1194,7 @@
         },
         {
           "id": "sec-27",
-          "number": "95",
+          "number": "99",
           "title": "TekQuora Administration Portal (Content Management System)",
           "isFixed": true,
           "content": "Introduction\nThe TekQuora Administration Portal is a secure and centralized Content Management System (CMS) developed to simplify the management of the TekQuora Corporate Website. Built using the Laravel Framework, the CMS enables authorized administrators to manage every aspect of the website through an intuitive web interface without modifying the application's source code.\n\nThe administration portal provides complete control over website content, including homepage banners, company information, services, portfolio projects, team members, work culture, gallery images, customer inquiries, footer content, and system configuration. By offering dedicated management modules, the CMS ensures that website content remains accurate, up-to-date, and consistent while significantly reducing maintenance effort.\n\nThe system is protected using Laravel's authentication and middleware mechanisms, ensuring that only authorized users can access administrative functions.",
@@ -1159,7 +1203,7 @@
         },
         {
           "id": "sec-28",
-          "number": "96",
+          "number": "100",
           "title": "Administrator Login",
           "isFixed": true,
           "content": "The administration portal is accessible only to authenticated users through a secure login page.\n\nLogin URL\nhttp://127.0.0.1:8000/admin/login\n\nAdministrator Credentials:",
@@ -1190,7 +1234,7 @@
         },
         {
           "id": "sec-29",
-          "number": "97",
+          "number": "101",
           "title": "Administrator Dashboard",
           "isFixed": true,
           "content": "The Dashboard serves as the central management interface of the TekQuora CMS. It provides administrators with a real-time overview of website activities, project statistics, customer inquiries, and system status immediately after login.\n\nThe dashboard presents important information through interactive summary cards and quick-access panels, allowing administrators to efficiently monitor website performance and manage daily operations.\n\nDashboard Features\n• Website overview and analytics\n• Active projects count\n• Open customer inquiries\n• Resolved inquiry statistics\n• Total leads captured\n• Recent customer messages\n• Website module status\n• Quick navigation to management modules\n\nThe dashboard acts as the primary control centre from which administrators can access all other content management modules.",
@@ -1205,7 +1249,7 @@
         },
         {
           "id": "sec-30",
-          "number": "98",
+          "number": "102",
           "title": "Header Management",
           "isFixed": true,
           "content": "The Header Management module controls the website's branding and navigation menu. It enables administrators to modify the website header dynamically without editing source code.\n\nAdministrators can upload company logos, configure navigation menu labels, and update navigation links displayed across the website.\n\nManaged Components\n• Company Logo\n• Navigation Menu\n• Menu Labels\n• Navigation Links\n• Header Display Settings\n\nChanges made within this module are immediately reflected throughout the website.",
@@ -1220,7 +1264,7 @@
         },
         {
           "id": "sec-31",
-          "number": "99",
+          "number": "103",
           "title": "About Page Management",
           "isFixed": true,
           "content": "The About Page Management module allows administrators to update company information presented on the About Us page.\n\nThis module includes management of the company's history, mission, vision, values, milestones, and supporting images.\n\nEditable Sections\n• Company Overview\n• Company History\n• Vision Statement\n• Mission Statement\n• Core Values\n• Timeline\n• About Images\n\nMaintaining this information through the CMS ensures that company details remain current and professionally presented.",
@@ -1235,7 +1279,7 @@
         },
         {
           "id": "sec-32",
-          "number": "100",
+          "number": "104",
           "title": "Services Management",
           "isFixed": true,
           "content": "The Services Management module is responsible for maintaining all services offered by TekQuora.\nAdministrators can create, modify, and remove service cards displayed on the public website.\n\nService Information\nEach service includes:\n• Service Title\n• Icon\n• Category\n• Description\n• Display Order\n\nSample Services\n• Web Development\n• Mobile Application Development\n• Artificial Intelligence\n• Cloud Computing\n• UI/UX Design\n• Custom Software Development\n\nThis module provides flexibility for expanding or modifying service offerings as the business evolves.",
@@ -1250,7 +1294,7 @@
         },
         {
           "id": "sec-33",
-          "number": "101",
+          "number": "105",
           "title": "Work Culture Management",
           "isFixed": true,
           "content": "The Work Culture Management module enables administrators to manage content related to TekQuora's organizational culture and employee experience .The module highlights the company's collaborative work environment, professional growth opportunities, employee benefits, and recruitment initiatives.\n\nManaged Content\n• Work Culture\n• Employee Benefits\n• Career Opportunities\n• Why Join Us\n• Company Values\n\nThis content supports employer branding and helps attract potential employees.",
@@ -1265,7 +1309,7 @@
         },
         {
           "id": "sec-34",
-          "number": "102",
+          "number": "106",
           "title": "Moments Gallery Management",
           "isFixed": true,
           "content": "The Moments Gallery Management module allows administrators to maintain image galleries displayed throughout the website.\n\nImages representing company events, office activities, celebrations, workshops, and team-building sessions can be uploaded, organized, and removed using this module.\n\nFeatures\n• Upload Multiple Images\n• Delete Images\n• Organize Gallery\n• Preview Images\n• Manage Display Order\n\nThe gallery enhances the visual appeal of the website while showcasing the company's culture and achievements.",
@@ -1280,7 +1324,7 @@
         },
         {
           "id": "sec-35",
-          "number": "103",
+          "number": "107",
           "title": "Team Management",
           "isFixed": true,
           "content": "The Team Management module allows administrators to maintain employee profiles displayed on the Team page.\n\nAdministrators can add new team members, update profile information, upload photographs, assign job titles, and include professional social media links.\n\nTeam Information\nEach profile includes:\n• Employee Name\n• Designation\n• Department\n• Biography\n• Profile Photograph\n• LinkedIn Profile\n• GitHub Profile\n• Email Address\n\nKeeping employee information updated improves transparency and strengthens the company's professional image.",
@@ -1295,7 +1339,7 @@
         },
         {
           "id": "sec-36",
-          "number": "104",
+          "number": "108",
           "title": "Footer Management",
           "isFixed": true,
           "content": "The Footer Management module controls the global footer displayed across every page of the website.\nAdministrators can update company contact information, quick navigation links, social media profiles, copyright text, and legal information.\n\nEditable Components\n• Company Description\n• Contact Information\n• Phone Numbers\n• Email Addresses\n• Quick Links\n• Social Media Links\n• Copyright Notice\n\nThis centralized management ensures consistency throughout the website.",
@@ -1310,7 +1354,7 @@
         },
         {
           "id": "sec-37",
-          "number": "105",
+          "number": "109",
           "title": "System Configuration",
           "isFixed": true,
           "content": "The System Configuration module contains global application settings affecting the entire website.\nAdministrators can configure SEO metadata, SMTP email settings, analytics integration, maintenance mode, and general website information.\n\nConfiguration Options\n• Website Name\n• SEO Meta Title\n• Meta Description\n• SMTP Configuration\n• Google Analytics\n• Maintenance Mode\n• Contact Information\n• System Settings\n\nCentralized configuration simplifies administration while ensuring consistent system behaviour across all modules.",
@@ -1325,7 +1369,7 @@
         },
         {
           "id": "sec-38",
-          "number": "106",
+          "number": "110",
           "title": "Summary",
           "isFixed": true,
           "content": "The TekQuora Corporate Website successfully combines a visually engaging corporate presence with a powerful Laravel-based Content Management System. It enables visitors to explore the company's services, projects, team, and work culture while providing administrators with a centralized platform to manage all website content dynamically. Through its responsive design, structured navigation, inquiry management system, and scalable architecture, the application delivers a professional digital experience that supports TekQuora's business objectives and strengthens its online presence.",
@@ -1333,7 +1377,7 @@
           "urls": []
         }
       ],
-      "updatedAt": "2026-08-17T10:10:38.177Z"
+      "updatedAt": "2026-08-17T10:37:21.943Z"
     }
   ]
 }
