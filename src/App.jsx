@@ -17,6 +17,15 @@ const escapeHtml = (value) => String(value)
   .replace(/"/g, '&quot;')
   .replace(/'/g, '&#039;');
 
+const formatAiBlock = (block) => {
+  if (block.type === 'paragraph') {
+    return `<p>${escapeHtml(block.text).replace(/\n/g, '<br/>')}</p>`;
+  }
+
+  const listTag = block.type === 'numberedList' ? 'ol' : 'ul';
+  return `<${listTag}>${block.items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</${listTag}>`;
+};
+
 export default function App() {
   const [isSaved, setIsSaved] = useState(true);
   const [backendConnected, setBackendConnected] = useState(false);
@@ -271,16 +280,13 @@ export default function App() {
     }
 
     const generatedSections = result.sections
-      .filter((section) => section.heading && (section.content || section.bullets?.length))
+      .filter((section) => section.heading && Array.isArray(section.blocks) && section.blocks.length)
       .map((section, index) => ({
         id: `ai-sec-${Date.now()}-${index}`,
         number: '',
         title: escapeHtml(section.heading.trim()),
         isFixed: false,
-        content: [
-          section.content.trim() ? `<p>${escapeHtml(section.content.trim())}</p>` : '',
-          section.bullets.length ? `<ul>${section.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join('')}</ul>` : ''
-        ].filter(Boolean).join(''),
+        content: section.blocks.map(formatAiBlock).join(''),
         images: [],
         videos: [],
         urls: []

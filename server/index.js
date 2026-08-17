@@ -69,41 +69,81 @@ const writeDB = (data) => {
   fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2), 'utf-8');
 };
 
-const AI_SYSTEM_INSTRUCTION = `You are a document organization and editing assistant. Transform only the user-provided content. Organize it into meaningful sections, create concise descriptive headings, improve grammar and clarity, and convert suitable information into bullet points. Preserve all factual information. Do not invent information that is not present in the user's input. Avoid unnecessary expansion and headings. If the input is already well written, make only appropriate improvements. If the input is very short, do not fabricate additional information.`;
+const AI_SYSTEM_INSTRUCTION = `You are a document organization and editing assistant. Process only the user's supplied input; never use or infer information from any other document content.
+
+First classify the input as exactly one of: structured, unstructured, or mixed. Do not reveal reasoning.
+
+For structured input, preserve existing headings, paragraph order, bullet lists, numbered lists, names, dates, numbers, terminology, and facts. Apply only light grammar or formatting cleanup. Do not add sections unless required to preserve a clearly distinct unstructured portion.
+
+For unstructured input, organize related information into concise semantic sections. Create headings only where useful. Use paragraphs for explanation, bullet lists for responsibilities, decisions, criteria, or unordered items, and numbered lists only when order or sequence matters.
+
+For mixed input, preserve the structured portions and organize only the unstructured portions. Do not flatten the input into a summary.
+
+Never invent, omit, or change names, dates, deadlines, numbers, organizations, decisions, responsibilities, events, or other facts. Avoid unnecessary expansion, headings, and generic filler. Never include section numbers in headings.
+
+Return only JSON matching the response schema. Each block must include type, text, and items. For a paragraph, set items to []. For bulletList and numberedList, set text to "" and put all entries in items.`;
 
 const aiResponseSchema = {
   type: Type.OBJECT,
   properties: {
+    inputType: {
+      type: Type.STRING,
+      enum: ['structured', 'unstructured', 'mixed']
+    },
     sections: {
       type: Type.ARRAY,
       items: {
         type: Type.OBJECT,
         properties: {
           heading: { type: Type.STRING },
-          content: { type: Type.STRING },
-          bullets: {
+          blocks: {
             type: Type.ARRAY,
-            items: { type: Type.STRING }
+            items: {
+              type: Type.OBJECT,
+              properties: {
+                type: {
+                  type: Type.STRING,
+                  enum: ['paragraph', 'bulletList', 'numberedList']
+                },
+                text: { type: Type.STRING },
+                items: {
+                  type: Type.ARRAY,
+                  items: { type: Type.STRING }
+                }
+              },
+              required: ['type', 'text', 'items']
+            }
           }
         },
-        required: ['heading', 'content', 'bullets']
+        required: ['heading', 'blocks']
       }
     }
   },
-  required: ['sections']
+  required: ['inputType', 'sections']
 };
+
+const validInputTypes = new Set(['structured', 'unstructured', 'mixed']);
+const validBlockTypes = new Set(['paragraph', 'bulletList', 'numberedList']);
 
 const isValidAiResponse = (result) => (
   result &&
+  validInputTypes.has(result.inputType) &&
   Array.isArray(result.sections) &&
   result.sections.length > 0 &&
   result.sections.every((section) => (
     section &&
     typeof section.heading === 'string' &&
     section.heading.trim() &&
-    typeof section.content === 'string' &&
-    Array.isArray(section.bullets) &&
-    section.bullets.every((bullet) => typeof bullet === 'string')
+    Array.isArray(section.blocks) &&
+    section.blocks.length > 0 &&
+    section.blocks.every((block) => (
+      block &&
+      validBlockTypes.has(block.type) &&
+      typeof block.text === 'string' &&
+      Array.isArray(block.items) &&
+      block.items.every((item) => typeof item === 'string' && item.trim()) &&
+      (block.type === 'paragraph' ? block.text.trim() : block.items.length > 0)
+    ))
   ))
 );
 
@@ -250,7 +290,7 @@ app.post('/api/ai/generate', async (req, res) => {
       return res.status(502).json({ success: false, message: 'AI returned an invalid document structure. Please try again.' });
     }
 
-    res.json({ success: true, sections: result.sections });
+    res.json({ success: true, inputType: result.inputType, sections: result.sections });
   } catch (err) {
     console.error('[AI Generate] Request failed:', err.message);
     res.status(502).json({ success: false, message: 'AI generation failed. Please try again.' });
