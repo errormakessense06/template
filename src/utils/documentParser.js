@@ -5,6 +5,8 @@ const escapeHtml = (value) => String(value)
   .replace(/"/g, '&quot;')
   .replace(/'/g, '&#039;');
 
+import { hasSequentialBareSectionPrefixes, normalizeSectionHeading } from './sectionNumbering.js';
+
 /**
  * Detects if the input text contains structured formatting such as
  * Markdown headings (#, ##), numbered titles, bullet points (*, -, •), or code blocks (```).
@@ -34,12 +36,16 @@ export function isStructuredInput(text) {
 
 /**
  * Parses structured markdown or outline text into document sections
- * with exact preservation of titles, numbering, hierarchy levels (1-6), lists, and code blocks.
+ * with preservation of titles, hierarchy levels (1-6), lists, and code blocks.
  */
 export function parseStructuredDocument(text) {
   if (!text || typeof text !== 'string') return [];
 
   const rawLines = text.replace(/\r\n/g, '\n').split('\n');
+  // Bare prefixes ("2 Project Goals") are stripped only when the pasted
+  // document demonstrates a numbered outline, not for isolated titles such as
+  // "2026 Project Budget".
+  const numberedOutline = hasSequentialBareSectionPrefixes(rawLines);
   const sections = [];
 
   let currentSection = null;
@@ -89,8 +95,7 @@ export function parseStructuredDocument(text) {
       const title = headingMatch[2].trim();
       currentSection = {
         id: `import-sec-${Date.now()}-${sections.length}`,
-        number: '', // Set empty string so template defaultNum does not prepend extra numbers
-        title: escapeHtml(title),
+        title: escapeHtml(normalizeSectionHeading(title)),
         level,
         isFixed: false,
         content: '',
@@ -101,14 +106,30 @@ export function parseStructuredDocument(text) {
       continue;
     }
 
-    // Numbered Heading Line Check (e.g., "1. Project Overview", "4.1 System Architecture")
-    // Only treat as section header if it's a standalone line (not inside a list block)
+    // Numbered Heading Line Check (e.g., "33 Work Culture Management", "100 Administrator Dashboard", "1. Project Overview")
     const numHeadingMatch = line.match(/^(\d+(?:\.\d+)*[\.\)]?)\s+([A-Z0-9].*)$/);
-    if (numHeadingMatch && !currentSection && isHeadingLine(trimmed, rawLines, i)) {
+    if (numHeadingMatch && isHeadingLine(trimmed, rawLines, i)) {
       finalizeSection();
       currentSection = {
         id: `import-sec-${Date.now()}-${sections.length}`,
-        number: '',
+        title: escapeHtml(normalizeSectionHeading(trimmed, {
+          numberedOutline: numberedOutline || /[.)]\s+/.test(numHeadingMatch[1])
+        })),
+        level: 1,
+        isFixed: false,
+        content: '',
+        images: [],
+        videos: [],
+        urls: []
+      };
+      continue;
+    }
+
+    // Standalone Title / Category Check (Short capitalized lines preceded by blank line)
+    if (isStandaloneHeaderLine(trimmed, rawLines, i)) {
+      finalizeSection();
+      currentSection = {
+        id: `import-sec-${Date.now()}-${sections.length}`,
         title: escapeHtml(trimmed),
         level: 1,
         isFixed: false,
@@ -124,7 +145,6 @@ export function parseStructuredDocument(text) {
     if (!currentSection) {
       currentSection = {
         id: `import-sec-${Date.now()}-${sections.length}`,
-        number: '',
         title: 'Imported Document',
         level: 1,
         isFixed: false,
@@ -146,11 +166,28 @@ export function parseStructuredDocument(text) {
  * Helper to determine if a numbered line is a section heading vs a list item inside a section.
  */
 function isHeadingLine(trimmed, lines, index) {
-  if (trimmed.length > 80) return false;
-  // If previous line was empty or non-existent and line is short, it's likely a heading
+  if (trimmed.length > 90) return false;
+  // If line ends with a period, comma, or semi-colon, it's prose, not a heading (unless it's short title with no trailing punctuation)
+  if (/[;]$/.test(trimmed)) return false;
   const prevLine = index > 0 ? lines[index - 1].trim() : '';
   const nextLine = index < lines.length - 1 ? lines[index + 1].trim() : '';
+  // Heading lines are typically surrounded by empty lines or start a new section before paragraphs/lists
   return prevLine === '' || nextLine !== '';
+}
+
+/**
+ * Helper to determine if a non-numbered line is a standalone section header.
+ */
+function isStandaloneHeaderLine(trimmed, lines, index) {
+  if (!trimmed || trimmed.length > 70) return false;
+  // Don't treat bullet points, numbers, or sentences with terminal punctuation as headers
+  if (/^[*\-•\d]/.test(trimmed)) return false;
+  if (/[.\!\,;]$/.test(trimmed)) return false;
+  // Must be at start of file or preceded by an empty line
+  const prevLine = index > 0 ? lines[index - 1].trim() : '';
+  if (prevLine !== '') return false;
+  const nextLine = index < lines.length - 1 ? lines[index + 1].trim() : '';
+  return nextLine !== '';
 }
 
 /**

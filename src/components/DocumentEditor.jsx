@@ -413,7 +413,8 @@ export default function DocumentEditor({
           const hasUrls = Boolean(section.urls && section.urls.length > 0);
           const hasTable = Boolean(section.table);
 
-          const defaultNum = section.number !== undefined && section.number !== null ? section.number : `${index + 1}.`;
+          // The section order is the single source of truth for numbering.
+          const sectionNumber = String(index + 1);
           const level = section.level || 1;
           const headingSizeClass = 
             level === 1 ? 'text-xl font-bold text-slate-900' :
@@ -437,16 +438,10 @@ export default function DocumentEditor({
               <div className="flex items-center justify-between gap-2 mb-1">
                 <div className="flex-1 flex items-center gap-1.5">
                   
-                  {/* Serial Number - 100% Inline Editable or Removable */}
-                  {defaultNum ? (
-                    <EditableContent
-                      html={defaultNum}
-                      onFocus={() => onSectionFocus && onSectionFocus(section.id)}
-                      onChange={(newVal) => onUpdateSection(section.id, { number: newVal })}
-                      className={`doc-heading-number editable-number ${headingSizeClass} leading-tight outline-none py-0.5 px-1 rounded hover:bg-slate-100 focus:bg-blue-50/80 focus:ring-1 focus:ring-blue-400 font-sans cursor-text`}
-                      title="Click to edit or remove section number (e.g. '1.', '1.1', 'A.', or leave empty)"
-                    />
-                  ) : null}
+                  {/* Presentation only: changing the order changes this number. */}
+                  <span className={`doc-heading-number ${headingSizeClass} leading-tight font-sans`}>
+                    {sectionNumber}
+                  </span>
 
                   {/* Heading Title - 100% Inline Editable */}
                   <EditableContent

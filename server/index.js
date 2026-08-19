@@ -69,19 +69,29 @@ const writeDB = (data) => {
   fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2), 'utf-8');
 };
 
-const AI_SYSTEM_INSTRUCTION = `You are a document organization and editing assistant. Process only the user's supplied input; never use or infer information from any other document content.
+const AI_SYSTEM_INSTRUCTION = `You are a document organization and structure extraction assistant. Process ONLY the user's supplied input; never use or infer information from any external context.
 
-First classify the input as exactly one of: structured, unstructured, or mixed. Do not reveal reasoning.
+Your main goal is to analyze the input and split it into multiple, well-organized logical sections matching the document's structure.
 
-For structured input, preserve existing headings, paragraph order, bullet lists, numbered lists, names, dates, numbers, terminology, and facts. Apply only light grammar or formatting cleanup. Do not add sections unless required to preserve a clearly distinct unstructured portion.
+First classify the input as exactly one of: "structured", "unstructured", or "mixed".
 
-For unstructured input, organize related information into concise semantic sections. Create headings only where useful. Use paragraphs for explanation, bullet lists for responsibilities, decisions, criteria, or unordered items, and numbered lists only when order or sequence matters.
+1. STRUCTURED CONTENT / PASTED FILES:
+   - Identify all logical section boundaries, headings, subheadings, module titles, numbered sections (e.g. "33 Work Culture Management", "100 Administrator Dashboard", "1. Icon"), categories, labels, key-value blocks, and list topics.
+   - Split the content into multiple distinct sections corresponding to these logical boundaries. Do NOT lump the entire input into a single section.
+   - If the source contains numbered sections or titles, remove the section number from the "heading" field. Headings must contain title text only because the editor assigns the final number based on insertion order. For example, return "Work Culture Management", never "33 Work Culture Management".
+   - Preserve 100% of all original information, facts, details, text, lists, bullet points, numbers, names, and descriptions.
+   - Do NOT summarize away, abbreviate, discard, or merge distinct sections together.
+   - Preserve the exact original sequence of sections and content.
+   - Do NOT invent or infer facts not explicitly present in the input.
 
-For mixed input, preserve the structured portions and organize only the unstructured portions. Do not flatten the input into a summary.
+2. RAW UNSTRUCTURED PROSE:
+   - Group related sentences and topics into concise, semantic sections with descriptive headings.
+   - Create separate sections for distinct topics or concepts. Do not put unrelated topics into a single section.
 
-Never invent, omit, or change names, dates, deadlines, numbers, organizations, decisions, responsibilities, events, or other facts. Avoid unnecessary expansion, headings, and generic filler. Never include section numbers in headings.
+3. MIXED CONTENT:
+   - Preserve structured portions as distinct sections and organize unstructured portions into appropriate logical sections.
 
-Return only JSON matching the response schema. Each block must include type, text, and items. For a paragraph, set items to []. For bulletList and numberedList, set text to "" and put all entries in items.`;
+Return only JSON matching the response schema. Each section MUST have a clear unnumbered "heading" and an array of "blocks". Each block must have type ("paragraph", "bulletList", or "numberedList"), text, and items. For paragraphs, set items to []. For bulletList and numberedList, set text to "" and put all entries in items.`;
 
 const aiResponseSchema = {
   type: Type.OBJECT,
@@ -124,6 +134,27 @@ const aiResponseSchema = {
 
 const validInputTypes = new Set(['structured', 'unstructured', 'mixed']);
 const validBlockTypes = new Set(['paragraph', 'bulletList', 'numberedList']);
+const explicitSectionPrefix = /^\s*(?:section\s+\d+(?:\.\d+)*(?:(?:\s*[.)])|(?:\s*[:\-–—]))?|\d+(?:\.\d+)*\s*[.)]|\d+(?:\.\d+)*\s*[:\-–—]|\d+(?:\.\d+)+)\s+/i;
+const bareSectionPrefix = /^\s*\d+(?:\.\d+)*\s+/;
+
+const hasSequentialBareHeadings = (headings) => {
+  const values = headings
+    .map((heading) => heading.trim().match(/^\s*(\d+)\s+\S/))
+    .filter(Boolean)
+    .map((match) => Number(match[1]));
+  return values.length >= 2 && values.every((value, index) => index === 0 || value === values[index - 1] + 1);
+};
+
+// Defense in depth: the prompt requests unnumbered headings, and this removes
+// any numbering a model still returns before the client receives it.
+const normalizeAiHeadings = (sections) => {
+  const numberedOutline = hasSequentialBareHeadings(sections.map((section) => section.heading));
+  return sections.map((section) => {
+    let heading = section.heading.trim().replace(explicitSectionPrefix, '');
+    if (numberedOutline) heading = heading.replace(bareSectionPrefix, '').replace(explicitSectionPrefix, '');
+    return { ...section, heading: heading.trim() };
+  });
+};
 
 const isValidAiResponse = (result) => (
   result &&
@@ -290,7 +321,7 @@ app.post('/api/ai/generate', async (req, res) => {
       return res.status(502).json({ success: false, message: 'AI returned an invalid document structure. Please try again.' });
     }
 
-    res.json({ success: true, inputType: result.inputType, sections: result.sections });
+    res.json({ success: true, inputType: result.inputType, sections: normalizeAiHeadings(result.sections) });
   } catch (err) {
     console.error('[AI Generate] Request failed:', err.message);
     res.status(502).json({ success: false, message: 'AI generation failed. Please try again.' });

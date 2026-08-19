@@ -30,7 +30,8 @@ import {
   X,
   FileText,
   Maximize2,
-  RotateCcw
+  RotateCcw,
+  Eraser
 } from 'lucide-react';
 
 const BACKEND_URL = 'http://localhost:5001';
@@ -520,6 +521,18 @@ export default function Toolbar({
           </div>
 
           <div className="flex items-center gap-2">
+            {onClearAllContent && (
+              <button
+                type="button"
+                onClick={onClearAllContent}
+                className="flex items-center gap-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs font-semibold px-3 py-1.5 rounded-lg shadow-2xs transition-all cursor-pointer"
+                title="Clear all paragraph content in document sections"
+              >
+                <Eraser className="w-3.5 h-3.5" />
+                <span>Clear Content</span>
+              </button>
+            )}
+
             <button
               onClick={onPrint}
               className="flex items-center gap-1.5 bg-blue-900 hover:bg-blue-950 text-white text-xs font-semibold px-4 py-1.5 rounded-lg shadow-xs transition-all cursor-pointer"
@@ -537,8 +550,6 @@ export default function Toolbar({
               <FileText className="w-3.5 h-3.5" />
               <span>Download Word</span>
             </button>
-
-
 
             <button
               onClick={onSaveDocument}
@@ -564,7 +575,7 @@ export default function Toolbar({
               </h3>
               <button 
                 onClick={() => setShowAiModal(false)}
-                className="text-slate-400 hover:text-slate-600 p-1 rounded-lg"
+                className="text-slate-400 hover:text-slate-600 p-1 rounded-lg cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -574,13 +585,26 @@ export default function Toolbar({
               Paste your document (Markdown, outlines, structured text, or rough notes). Structured text is imported directly as source-of-truth sections without rewriting.
             </p>
 
-            <textarea
-              value={aiPrompt}
-              onChange={(e) => setAiPrompt(e.target.value)}
-              rows={8}
-              placeholder="Paste your structured document (or rough notes) here..."
-              className="w-full text-xs border border-slate-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-amber-500 font-mono"
-            />
+            <div className="relative">
+              <textarea
+                value={aiPrompt}
+                onChange={(e) => setAiPrompt(e.target.value)}
+                rows={8}
+                placeholder="Paste your structured document (or rough notes) here..."
+                className="w-full text-xs border border-slate-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-amber-500 font-mono"
+              />
+              {aiPrompt && (
+                <button
+                  type="button"
+                  onClick={() => setAiPrompt('')}
+                  className="absolute top-2.5 right-2.5 text-[11px] font-medium text-slate-500 hover:text-rose-600 bg-white/90 hover:bg-rose-50 border border-slate-200 hover:border-rose-200 px-2 py-1 rounded-md shadow-2xs flex items-center gap-1 transition-all cursor-pointer"
+                  title="Clear text input"
+                >
+                  <Eraser className="w-3 h-3" />
+                  <span>Clear</span>
+                </button>
+              )}
+            </div>
 
             {aiError && (
               <p className="text-xs text-rose-600 bg-rose-50 border border-rose-200 rounded-lg p-2.5">

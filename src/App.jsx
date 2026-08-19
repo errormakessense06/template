@@ -3,7 +3,8 @@ import Toolbar from './components/Toolbar';
 import CoverPage from './components/CoverPage';
 import DocumentEditor from './components/DocumentEditor';
 import { DEFAULT_TEMPLATE } from './data/defaultTemplate';
-import { isStructuredInput, parseStructuredDocument } from './utils/documentParser';
+import { parseStructuredDocument } from './utils/documentParser';
+import { normalizeDocumentSections, normalizeSectionHeading, hasSequentialBareSectionPrefixes } from './utils/sectionNumbering';
 
 const BACKEND_URL = 'http://localhost:5001';
 const LOCAL_STORAGE_KEY = 'tekquora_doc_studio_templates_v12';
@@ -84,13 +85,16 @@ export default function App() {
             localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify([DEFAULT_TEMPLATE]));
             return [DEFAULT_TEMPLATE];
           }
-          return parsed;
+          return parsed.map((template) => ({
+            ...template,
+            sections: normalizeDocumentSections(template.sections)
+          }));
         }
       } catch (e) {
         console.error('Failed to parse saved templates:', e);
       }
     }
-    return [DEFAULT_TEMPLATE];
+    return [{ ...DEFAULT_TEMPLATE, sections: normalizeDocumentSections(DEFAULT_TEMPLATE.sections) }];
   });
 
   const [activeTemplateId, setActiveTemplateId] = useState(() => {
@@ -272,15 +276,8 @@ export default function App() {
     let generatedSections = [];
     let isImport = false;
 
-    // Check if input is already structured content (Markdown, outlines, numbered headers, list blocks, code blocks).
-    // If so, treat as DOCUMENT IMPORT (SOURCE OF TRUTH) and bypass Gemini completely.
-    if (isStructuredInput(input)) {
-      generatedSections = parseStructuredDocument(input);
-      isImport = true;
-    }
-
-    if (!isImport || !generatedSections.length) {
-      // Fallback to Gemini AI for raw unstructured prose
+    try {
+      // Send input to AI backend for intelligent section boundary detection and structure extraction
       const response = await fetch(`${BACKEND_URL}/api/ai/generate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -288,22 +285,30 @@ export default function App() {
       });
       const result = await response.json().catch(() => ({}));
 
-      if (!response.ok || !result.success || !Array.isArray(result.sections)) {
-        throw new Error(result.message || 'AI generation failed. Please try again.');
+      if (response.ok && result.success && Array.isArray(result.sections) && result.sections.length > 0) {
+        const numberedOutline = hasSequentialBareSectionPrefixes(result.sections.map((section) => section.heading));
+        generatedSections = result.sections
+          .filter((section) => section.heading && Array.isArray(section.blocks) && section.blocks.length)
+          .map((section, index) => ({
+            id: `ai-sec-${Date.now()}-${index}`,
+            title: escapeHtml(normalizeSectionHeading(section.heading, { numberedOutline })),
+            isFixed: false,
+            content: section.blocks.map(formatAiBlock).join(''),
+            images: [],
+            videos: [],
+            urls: []
+          }));
+      } else if (result.message) {
+        console.warn('AI Generation service returned error, falling back to local document parser:', result.message);
       }
+    } catch (err) {
+      console.warn('AI Backend connection error, falling back to local document parser:', err);
+    }
 
-      generatedSections = result.sections
-        .filter((section) => section.heading && Array.isArray(section.blocks) && section.blocks.length)
-        .map((section, index) => ({
-          id: `ai-sec-${Date.now()}-${index}`,
-          number: '',
-          title: escapeHtml(section.heading.trim()),
-          isFixed: false,
-          content: section.blocks.map(formatAiBlock).join(''),
-          images: [],
-          videos: [],
-          urls: []
-        }));
+    // Fallback: If AI endpoint did not produce sections, use local structure parser
+    if (!generatedSections.length) {
+      generatedSections = parseStructuredDocument(input);
+      isImport = true;
     }
 
     if (!generatedSections.length) {
@@ -319,11 +324,7 @@ export default function App() {
         updatedSections.splice(targetIndex + 1, 0, ...generatedSections);
         return {
           ...tpl,
-          sections: updatedSections.map((section, index) => {
-            // Preserve explicit empty string or custom numbers on imported sections
-            if (section.number === '') return section;
-            return { ...section, number: String(index + 1) };
-          })
+          sections: normalizeDocumentSections(updatedSections)
         };
       })
     );
@@ -333,7 +334,7 @@ export default function App() {
       type: 'success',
       message: isImport 
         ? `✨ Imported ${generatedSections.length} section${generatedSections.length === 1 ? '' : 's'} directly into editor!`
-        : `AI organized your content into ${generatedSections.length} editable section${generatedSections.length === 1 ? '' : 's'}.`
+        : `✨ AI organized your content into ${generatedSections.length} editable section${generatedSections.length === 1 ? '' : 's'}.`
     });
     setTimeout(() => setSaveNotification(null), 4000);
   };
@@ -347,7 +348,15 @@ export default function App() {
         return {
           ...tpl,
           sections: tpl.sections.map((sec) =>
-            sec.id === sectionId ? { ...sec, ...updatedData } : sec
+            sec.id === sectionId
+              ? {
+                ...sec,
+                ...updatedData,
+                ...(Object.hasOwn(updatedData, 'title')
+                  ? { title: normalizeSectionHeading(updatedData.title) }
+                  : {})
+              }
+              : sec
           )
         };
       })
@@ -369,7 +378,6 @@ export default function App() {
   const handleAddSection = () => {
     const newSec = {
       id: 'sec-' + Date.now(),
-      number: String(activeTemplate.sections.length + 1),
       title: 'New Requirement Heading',
       isFixed: false,
       content: '',
@@ -392,7 +400,6 @@ export default function App() {
   const handleInsertSectionAfter = (index) => {
     const newSec = {
       id: 'sec-' + Date.now(),
-      number: String(index + 2),
       title: 'New Requirement Heading',
       isFixed: false,
       content: '',
@@ -406,10 +413,9 @@ export default function App() {
         if (tpl.id !== activeTemplate.id) return tpl;
         const updated = [...tpl.sections];
         updated.splice(index + 1, 0, newSec);
-        const renumbered = updated.map((s, idx) => ({ ...s, number: String(idx + 1) }));
         return {
           ...tpl,
-          sections: renumbered
+          sections: normalizeDocumentSections(updated)
         };
       })
     );
@@ -420,10 +426,9 @@ export default function App() {
       prevTemplates.map((tpl) => {
         if (tpl.id !== activeTemplate.id) return tpl;
         const filtered = tpl.sections.filter((s) => s.id !== sectionId);
-        const renumbered = filtered.map((s, idx) => ({ ...s, number: String(idx + 1) }));
         return {
           ...tpl,
-          sections: renumbered
+          sections: normalizeDocumentSections(filtered)
         };
       })
     );
@@ -439,10 +444,9 @@ export default function App() {
         const [moved] = updated.splice(fromIndex, 1);
         updated.splice(toIndex, 0, moved);
 
-        const renumbered = updated.map((s, idx) => ({ ...s, number: String(idx + 1) }));
         return {
           ...tpl,
-          sections: renumbered
+          sections: normalizeDocumentSections(updated)
         };
       })
     );
