@@ -19,6 +19,11 @@
   background-size: 24px 24px;
 }
 
+::highlight(tekquora-search-match) {
+  background: #fef08a;
+  color: inherit;
+}
+
 /* Continuous Document Page Container */
 .doc-page {
   width: 100%;

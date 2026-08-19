@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Toolbar from './components/Toolbar';
 import CoverPage from './components/CoverPage';
 import DocumentEditor from './components/DocumentEditor';
+import NavigationPane from './components/NavigationPane';
 import { DEFAULT_TEMPLATE } from './data/defaultTemplate';
 import { parseStructuredDocument } from './utils/documentParser';
 import { normalizeDocumentSections, normalizeSectionHeading, hasSequentialBareSectionPrefixes } from './utils/sectionNumbering';
@@ -71,6 +72,9 @@ export default function App() {
 
   // Track Active Focused Section ID
   const [activeSectionId, setActiveSectionId] = useState(null);
+  // Search is view-only UI state and is intentionally excluded from documents/autosave.
+  const [isNavigationOpen, setIsNavigationOpen] = useState(false);
+  const [activeSearchMatch, setActiveSearchMatch] = useState(null);
 
   // Initialize templates from LocalStorage or DEFAULT_TEMPLATE
   const [templates, setTemplates] = useState(() => {
@@ -340,6 +344,16 @@ export default function App() {
   };
 
   const handleSelectTemplate = (id) => setActiveTemplateId(id);
+
+  const handleNavigateSearch = (match) => {
+    setActiveSearchMatch(match);
+    setActiveSectionId(match.sectionId);
+  };
+
+  const closeNavigation = () => {
+    setIsNavigationOpen(false);
+    setActiveSearchMatch(null);
+  };
 
   const handleUpdateSection = (sectionId, updatedData) => {
     setTemplates((prevTemplates) =>
@@ -871,13 +885,22 @@ ${sourceEl.outerHTML}
         textAlign={activeTextAlign}
         setTextAlign={handleSetTextAlign}
         onAiGenerate={handleAiGenerate}
+        onOpenSearch={() => setIsNavigationOpen(true)}
         layoutMode={layoutMode}
         onLayoutModeChange={handleLayoutModeChange}
         autoSaveEnabled={autoSaveEnabled}
         onToggleAutoSave={handleToggleAutoSave}
       />
 
-      <main className="doc-canvas flex-1 p-3 sm:p-6 overflow-y-auto overflow-x-auto flex justify-center">
+      <main className="doc-canvas flex-1 p-3 sm:p-6 overflow-y-auto overflow-x-auto flex items-start justify-center gap-4">
+        {isNavigationOpen && (
+          <NavigationPane
+            sections={activeTemplate.sections}
+            onClose={closeNavigation}
+            onNavigate={handleNavigateSearch}
+            onSearchChange={() => setActiveSearchMatch(null)}
+          />
+        )}
         <div 
           id="document-export-container"
           className={`w-full transition-all duration-300 ease-in-out space-y-5 ${
@@ -901,6 +924,7 @@ ${sourceEl.outerHTML}
             onReorderSection={handleReorderSection}
             onInsertSectionAfter={handleInsertSectionAfter}
             onSectionFocus={(secId) => setActiveSectionId(secId)}
+            activeSearchMatch={activeSearchMatch}
             fontSize={fontSize}
             fontFamily={fontFamily}
             layoutMode={layoutMode}

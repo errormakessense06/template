@@ -31,7 +31,8 @@ import {
   FileText,
   Maximize2,
   RotateCcw,
-  Eraser
+  Eraser,
+  Search
 } from 'lucide-react';
 
 const BACKEND_URL = 'http://localhost:5001';
@@ -61,6 +62,7 @@ export default function Toolbar({
   textAlign,
   setTextAlign,
   onAiGenerate,
+  onOpenSearch,
   layoutMode = 'a4',
   onLayoutModeChange,
   autoSaveEnabled = true,
@@ -281,6 +283,16 @@ export default function Toolbar({
             >
               <Sparkles className="w-4 h-4 text-amber-100" />
               <span>✨ GENERATE WITH AI</span>
+            </button>
+            <button
+              type="button"
+              onClick={onOpenSearch}
+              className="flex items-center gap-1.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 text-xs font-bold px-3 py-2 rounded-lg shadow-sm transition-all cursor-pointer"
+              title="Search document"
+              aria-label="Open document search"
+            >
+              <Search className="w-4 h-4" />
+              <span className="hidden sm:inline">Search</span>
             </button>
           </div>
 

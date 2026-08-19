@@ -55,6 +55,7 @@ export default function DocumentEditor({
   onReorderSection,
   onInsertSectionAfter,
   onSectionFocus,
+  activeSearchMatch,
   fontSize = '16px',
   fontFamily = 'Georgia',
   textAlign = 'left',
@@ -64,6 +65,74 @@ export default function DocumentEditor({
   const [urlLink, setUrlLink] = React.useState('');
   const [urlTitle, setUrlTitle] = React.useState('');
   const [cropTarget, setCropTarget] = React.useState(null);
+
+  useEffect(() => {
+    const highlightName = 'tekquora-search-match';
+    const clearHighlight = () => {
+      if (typeof CSS !== 'undefined' && CSS.highlights) CSS.highlights.delete(highlightName);
+    };
+
+    clearHighlight();
+    if (!activeSearchMatch?.sectionId) return clearHighlight;
+
+    const sectionElement = document.getElementById(`document-section-${activeSearchMatch.sectionId}`);
+    if (!sectionElement) return clearHighlight;
+    sectionElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (!activeSearchMatch.query) return clearHighlight;
+
+    const textNodes = [];
+    const walker = document.createTreeWalker(sectionElement, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        const parent = node.parentElement;
+        return parent?.closest('button, .no-print') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    let node;
+    while ((node = walker.nextNode())) textNodes.push(node);
+
+    const text = textNodes.map((textNode) => textNode.textContent).join('');
+    const needle = activeSearchMatch.query.toLocaleLowerCase();
+    let from = 0;
+    let matchStart = -1;
+    for (let index = 0; index <= activeSearchMatch.occurrence; index += 1) {
+      matchStart = text.toLocaleLowerCase().indexOf(needle, from);
+      if (matchStart === -1) return clearHighlight;
+      from = matchStart + needle.length;
+    }
+
+    let offset = 0;
+    let startNode;
+    let endNode;
+    let startOffset = 0;
+    let endOffset = 0;
+    for (const textNode of textNodes) {
+      const nextOffset = offset + textNode.textContent.length;
+      if (!startNode && matchStart >= offset && matchStart < nextOffset) {
+        startNode = textNode;
+        startOffset = matchStart - offset;
+      }
+      const matchEnd = matchStart + needle.length;
+      if (startNode && matchEnd <= nextOffset) {
+        endNode = textNode;
+        endOffset = matchEnd - offset;
+        break;
+      }
+      offset = nextOffset;
+    }
+    if (!startNode || !endNode) return clearHighlight;
+
+    const range = document.createRange();
+    range.setStart(startNode, startOffset);
+    range.setEnd(endNode, endOffset);
+    if (typeof CSS !== 'undefined' && CSS.highlights && typeof Highlight !== 'undefined') {
+      CSS.highlights.set(highlightName, new Highlight(range));
+    } else {
+      const selection = window.getSelection();
+      selection?.removeAllRanges();
+      selection?.addRange(range);
+    }
+    return clearHighlight;
+  }, [activeSearchMatch]);
 
   // Local Media Upload Handlers
   const handleLocalImageUpload = async (e, sectionId) => {
@@ -430,6 +499,7 @@ export default function DocumentEditor({
           return (
             <div 
               key={section.id} 
+              id={`document-section-${section.id}`}
               className={`section-block group relative mb-3 ${indentClass}`}
               onClick={() => onSectionFocus && onSectionFocus(section.id)}
             >
